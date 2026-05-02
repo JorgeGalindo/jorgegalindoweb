@@ -142,7 +142,7 @@
   "ca": {
     "html_lang": "ca",
     "page_title": "Jorge Galindo",
-    "meta_description": "Jorge Galindo. Dirigeixo EsadeEcPol. Autor de Tres millones de viviendas (Debate). Escric a El País.",
+    "meta_description": "Jorge Galindo. Dirigisc EsadeEcPol. Autor de Tres millones de viviendas (Debate). Escric a El País.",
     "skip_to_content": "Salta al contingut",
     "nav.aria": "Principal",
     "nav.libro": "llibre",
@@ -153,9 +153,9 @@
     "nav.quien": "qui",
 
     "hero.hello": "Hola :)",
-    "hero.phrase1_html": "Busco idees sòlides i viables per al progrés.",
-    "hero.phrase2_html": "Treballo convertint coneixement i dades rigoroses en <em>criteri</em>.",
-    "hero.sig_html": "Dirigeixo <a href=\"#ecpol\">EsadeEcPol</a>. He publicat <a href=\"#libro\"><em>Tres millones de viviendas</em></a> (Debate). Escric a <a href=\"https://elpais.com/autor/jorge-galindo/\" rel=\"noopener\">El País</a>.",
+    "hero.phrase1_html": "Busque idees sòlides i viables per al progrés.",
+    "hero.phrase2_html": "Treballe convertint coneixement i dades rigoroses en <em>criteri</em>.",
+    "hero.sig_html": "Dirigisc <a href=\"#ecpol\">EsadeEcPol</a>. He publicat <a href=\"#libro\"><em>Tres millones de viviendas</em></a> (Debate). Escric a <a href=\"https://elpais.com/autor/jorge-galindo/\" rel=\"noopener\">El País</a>.",
 
     "book.head": "el llibre",
     "book.title": "Tres millones de viviendas",
@@ -165,10 +165,10 @@
     "book.point3_html": "<strong>La paràlisi:</strong> per què ni el mercat ni l'estat responen als incentius de preus alts i demandes ciutadanes.",
     "book.point4_html": "<strong>Les trampes del sistema:</strong> com ens bloquegem a nosaltres mateixos.",
     "book.point5_html": "<strong>Les solucions que poden funcionar:</strong> polítiques concretes per sortir de l'escassetat i desbloquejar les oportunitats.",
-    "book.point6_html": "<strong>Com activar-les</strong> perquè siguin viables i justes, de manera que els nous habitatges vagin per a qui els necessita.",
+    "book.point6_html": "<strong>Com activar-les</strong> perquè siguen viables i justes, de manera que els nous habitatges vagen per a qui els necessita.",
 
     "ecpol.head": "esadeecpol",
-    "ecpol.title": "Dirigeixo EsadeEcPol.",
+    "ecpol.title": "Dirigisc EsadeEcPol.",
     "ecpol.copy": "Vaig començar com a director adjunt i en vaig assumir la direcció el gener de 2026. Vam fundar el Centre de Polítiques Econòmiques a inicis de 2020 per convertir-nos en referents en polítiques públiques basades en evidència. I en això estem.",
     "ecpol.note": "Equip, papers, notes i esdeveniments.",
     "ecpol.briefs_head": "// policy briefs destacats",
@@ -205,7 +205,7 @@
     "tray.research.head": "investigació acadèmica",
     "tray.research.scholar": "Resta de publicacions a Google Scholar →",
 
-    "footer.write": "// si tens preguntes interessants, idees per escriure o pensar, o converses que vulguis provocar, escriu-me a",
+    "footer.write": "// si tens preguntes interessants, idees per escriure o pensar, o converses que vulgues provocar, escriu-me a",
     "footer.eof": "EOF"
   }
 }
