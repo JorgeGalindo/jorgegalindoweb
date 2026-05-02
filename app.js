@@ -38,7 +38,7 @@
   // hacer hard-reload — el archivo es pequeño y la revalidación es barata.
   let i18nDict = null;
   try {
-    const r = await fetch("data/i18n.json?v=20260502t", { cache: "no-cache" });
+    const r = await fetch("data/i18n.json?v=20260502w", { cache: "no-cache" });
     if (r.ok) {
       const all = await r.json();
       i18nDict = all[lang] || null;
