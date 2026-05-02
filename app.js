@@ -33,10 +33,12 @@
   document.documentElement.lang = lang;
 
   // Traducciones: las cargamos antes de continuar. En caso de fallo, se queda
-  // en el idioma original del HTML (es).
+  // en el idioma original del HTML (es). Usamos no-cache para que cualquier
+  // cambio en el JSON (claves nuevas, ediciones) se refleje sin tener que
+  // hacer hard-reload — el archivo es pequeño y la revalidación es barata.
   let i18nDict = null;
   try {
-    const r = await fetch("data/i18n.json", { cache: "force-cache" });
+    const r = await fetch("data/i18n.json?v=20260502s", { cache: "no-cache" });
     if (r.ok) {
       const all = await r.json();
       i18nDict = all[lang] || null;
