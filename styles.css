@@ -60,6 +60,11 @@
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+/* Evita scroll horizontal accidental causado por pseudo-elementos posicionados
+   con left/right negativos (los halos de los degradados). 'clip' es preferible
+   a 'hidden' porque NO crea un contexto de scroll y por tanto no rompe el
+   position:sticky del nav. */
+html, body { overflow-x: clip; }
 
 /* Spectral (Production Type, Google Fonts): serif editorial cálida con personalidad,
    pero más legible y contemporánea que Instrument Serif. Pesos múltiples (300/400/500/600).
@@ -393,6 +398,9 @@ strong { font-weight: 600; }
 .section--gradient {
   position: relative;
   isolation: isolate;
+  /* Recorta los halos pseudo-elemento (left/right negativos) al ancho de la
+     sección, para que no provoquen scroll horizontal en móvil/iPad. */
+  overflow: clip;
 }
 .section--gradient > .container,
 .section--gradient > .container.newsletter__inner {
