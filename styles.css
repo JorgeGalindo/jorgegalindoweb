@@ -566,6 +566,79 @@ strong { font-weight: 600; }
   margin: 0;
 }
 
+/* ─────────────────────────  ecpol — policy briefs destacados  ───────────────────────── */
+
+.ecpol__briefs {
+  margin-top: clamp(1.5rem, 4vw, 2.25rem);
+  padding-top: clamp(1rem, 3vw, 1.5rem);
+}
+.ecpol__briefs-head {
+  font-family: var(--mono);
+  font-size: .8rem;
+  color: var(--lav);
+  letter-spacing: .04em;
+  margin: 0 0 1rem;
+  text-transform: lowercase;
+}
+.ecpol__briefs-grid {
+  list-style: none; padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+@media (max-width: 760px) {
+  .ecpol__briefs-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+.brief {
+  min-width: 0;
+}
+.brief__link {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: .65rem;
+  text-decoration: none;
+  color: var(--ink);
+  height: 100%;
+}
+.brief__cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 1px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  box-shadow: 0 12px 30px -22px rgba(35, 38, 49, .35);
+  transition: transform var(--t-med) var(--ease);
+}
+.brief__cover img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--t-med) var(--ease);
+}
+.brief__link:hover .brief__cover { transform: translateY(-2px); }
+.brief__link:hover .brief__cover img { transform: scale(1.02); }
+.brief__title {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  background-image: linear-gradient(var(--lav), var(--lav));
+  background-size: 0 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size var(--t-med) var(--ease), color var(--t-fast) var(--ease);
+  padding-bottom: 2px;
+  align-self: start;
+}
+.brief__link:hover .brief__title {
+  background-size: 100% 1px;
+  color: var(--lav);
+}
+
 /* ─────────────────────────  log (escribir) — TRES feeds  ───────────────────────── */
 
 .log { padding: clamp(1.75rem, 4.5vw, 3rem) 0; }

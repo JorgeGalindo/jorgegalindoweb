@@ -31,6 +31,10 @@
     "ecpol.title": "Dirijo EsadeEcPol.",
     "ecpol.copy": "Empecé como director adjunto, asumiendo la dirección en enero de 2026. Fundamos el Centro de Políticas Económicas a inicios de 2020 para convertirnos en referentes sobre políticas públicas basadas en evidencia. Y en ello estamos.",
     "ecpol.note": "Equipo, papers, notas y eventos.",
+    "ecpol.briefs_head": "// policy briefs destacados",
+    "ecpol.briefs.patrimonio": "Radiografía de la evolución del patrimonio de los hogares españoles",
+    "ecpol.briefs.ia_publico": "El impacto de la IA en el sector público español",
+    "ecpol.briefs.alquiler": "El mercado de alquiler en España: vacacional, de temporada y largo plazo ante la regulación",
 
     "log.head": "escribir",
     "log.title": "Lo que voy publicando.",
@@ -97,6 +101,10 @@
     "ecpol.title": "I run EsadeEcPol.",
     "ecpol.copy": "I started as deputy director and took over the directorship in January 2026. We founded the Center for Economic Policy in early 2020 to become a reference for evidence-based public policy. And we keep at it.",
     "ecpol.note": "Team, papers, notes and events.",
+    "ecpol.briefs_head": "// featured policy briefs",
+    "ecpol.briefs.patrimonio": "An X-ray of Spanish households' wealth: how hard it is for new generations to save",
+    "ecpol.briefs.ia_publico": "The impact of AI on the Spanish public sector",
+    "ecpol.briefs.alquiler": "Spain's rental market: holiday, seasonal and long-term rentals under regulation",
 
     "log.head": "writing",
     "log.title": "What I'm publishing.",
@@ -163,6 +171,10 @@
     "ecpol.title": "Dirigeixo EsadeEcPol.",
     "ecpol.copy": "Vaig començar com a director adjunt i en vaig assumir la direcció el gener de 2026. Vam fundar el Centre de Polítiques Econòmiques a inicis de 2020 per convertir-nos en referents en polítiques públiques basades en evidència. I en això estem.",
     "ecpol.note": "Equip, papers, notes i esdeveniments.",
+    "ecpol.briefs_head": "// policy briefs destacats",
+    "ecpol.briefs.patrimonio": "Radiografia de l'evolució del patrimoni de les llars espanyoles",
+    "ecpol.briefs.ia_publico": "L'impacte de la IA en el sector públic espanyol",
+    "ecpol.briefs.alquiler": "El mercat de lloguer a Espanya: vacacional, de temporada i de llarg termini davant la regulació",
 
     "log.head": "escriure",
     "log.title": "El que vaig publicant.",
