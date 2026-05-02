@@ -884,16 +884,12 @@ strong { font-weight: 600; }
   font-weight: 400 !important;
 }
 
-.quien__signoff {
-  font-family: var(--display) !important;
-  font-style: italic !important;
-  font-size: 1.25rem !important;
-  font-weight: 400 !important;
-  color: var(--ink) !important;
-  line-height: 1.4 !important;
-  margin-top: 2rem !important;
-  border-left: 2px solid var(--green);
-  padding-left: 1rem;
+/* Trayectoria fusionada dentro de quién: bloque inferior con un poco de aire
+   y una línea fina de separación con la bio. */
+.quien__tray {
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding-top: clamp(1rem, 3vw, 1.75rem);
+  border-top: 1px solid var(--rule);
 }
 
 /* ─────────────────────────  trayectoria  ───────────────────────── */
@@ -945,6 +941,14 @@ strong { font-weight: 600; }
 }
 .tray__books li:last-child { border-bottom: 0; }
 .tray__book-title { min-width: 0; }
+.tray__subhead {
+  font-family: var(--mono);
+  font-size: .8rem;
+  color: var(--green);
+  letter-spacing: .04em;
+  margin: 1.5rem 0 .75rem;
+  text-transform: lowercase;
+}
 .tray__cover {
   display: block;
   width: 36px;
@@ -1005,13 +1009,14 @@ strong { font-weight: 600; }
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--rule);
 }
-.footer__write { display: flex; flex-direction: column; gap: .5rem; }
+.footer__write { display: flex; flex-direction: column; gap: .75rem; max-width: 56ch; }
 .footer__label {
   font-family: var(--mono);
-  font-size: .72rem;
-  color: var(--ink-mute);
+  font-size: .85rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  letter-spacing: .01em;
   margin: 0;
-  letter-spacing: .02em;
 }
 .footer__email {
   font-family: var(--display);

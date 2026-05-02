@@ -53,17 +53,17 @@
     "quien.head": "quién",
     "quien.lede": "Doctor en sociología aplicada por la Universidad de Ginebra (con financiación de la Swiss National Science Foundation). Doble MPP en Erasmus University Rotterdam y Central European University, con beca Erasmus Mundus de la Comisión Europea.",
     "quien.bio_html": "Soy analista externo de riesgo político para <strong>Eurasia Group</strong> desde 2014. He escrito capítulos de libros y participado en redes de expertos y eventos con la <strong>OIT</strong>, la <strong>Generalitat de Catalunya</strong>, la <strong>Fundación ICO</strong>, la <strong>Fundación Carolina</strong>, la <strong>FEPS</strong>, la <strong>Friedrich Naumann Foundation</strong> y la <strong>Fundación Gabo</strong>, entre otras.",
-    "quien.signoff_html": "Si tienes una pregunta interesante, una idea para escribir o pensar juntos, o una conversación que quieras provocar — <a href=\"mailto:jorge.galindo@esade.edu\">jorge.galindo at esade.edu</a>.",
 
     "tray.head": "trayectoria · aparte",
     "tray.title": "Antes — y en paralelo.",
     "tray.politikon.head": "politikon",
     "tray.politikon.copy_html": "Cofundé <em>Politikon</em> en 2010, colectivo de análisis político y de políticas públicas. Sacamos dos libros colectivos en Debate:",
+    "tray.politikon.subhead": "// más libros",
     "tray.politikon.copy2_html": "Además, con el equipo y la red de colaboradores de EsadeEcPol publicamos otro que para mí continúa con el espíritu de los anteriores, en Deusto (Planeta):",
     "tray.research.head": "investigación académica",
     "tray.research.scholar": "Resto de publicaciones en Google Scholar →",
 
-    "footer.write": "// escribir",
+    "footer.write": "// si tienes preguntas interesantes, ideas para escribir o pensar, o conversaciones que quieres provocar, escríbeme a",
     "footer.eof": "EOF"
   },
 
@@ -121,17 +121,17 @@
     "quien.head": "who",
     "quien.lede": "PhD in applied sociology from the University of Geneva (funded by the Swiss National Science Foundation). Double MPP from Erasmus University Rotterdam and Central European University, on an Erasmus Mundus scholarship.",
     "quien.bio_html": "I've been an external political risk analyst for <strong>Eurasia Group</strong> since 2014. I've written book chapters and participated in expert networks and events with the <strong>ILO</strong>, the <strong>Generalitat de Catalunya</strong>, <strong>Fundación ICO</strong>, <strong>Fundación Carolina</strong>, <strong>FEPS</strong>, the <strong>Friedrich Naumann Foundation</strong> and <strong>Fundación Gabo</strong>, among others.",
-    "quien.signoff_html": "If you have an interesting question, an idea to write or think about together, or a conversation you'd like to spark — <a href=\"mailto:jorge.galindo@esade.edu\">jorge.galindo at esade.edu</a>.",
 
     "tray.head": "career · aside",
     "tray.title": "Before — and in parallel.",
     "tray.politikon.head": "politikon",
     "tray.politikon.copy_html": "I co-founded <em>Politikon</em> in 2010, a collective for political analysis and public policy. Two collective books with Debate:",
+    "tray.politikon.subhead": "// more books",
     "tray.politikon.copy2_html": "Later, with the EsadeEcPol team and network of collaborators, we published another one that for me continues the spirit of the previous two — with Deusto (Planeta):",
     "tray.research.head": "academic research",
     "tray.research.scholar": "Rest of publications on Google Scholar →",
 
-    "footer.write": "// write",
+    "footer.write": "// if you have interesting questions, ideas to write or think about, or conversations you want to spark, write me at",
     "footer.eof": "EOF"
   },
 
@@ -189,17 +189,17 @@
     "quien.head": "qui",
     "quien.lede": "Doctor en sociologia aplicada per la Universitat de Ginebra (amb finançament de la Swiss National Science Foundation). Doble MPP per Erasmus University Rotterdam i Central European University, amb beca Erasmus Mundus de la Comissió Europea.",
     "quien.bio_html": "Sóc analista extern de risc polític per a <strong>Eurasia Group</strong> des de 2014. He escrit capítols de llibres i he participat en xarxes d'experts i esdeveniments amb l'<strong>OIT</strong>, la <strong>Generalitat de Catalunya</strong>, la <strong>Fundación ICO</strong>, la <strong>Fundación Carolina</strong>, la <strong>FEPS</strong>, la <strong>Friedrich Naumann Foundation</strong> i la <strong>Fundación Gabo</strong>, entre altres.",
-    "quien.signoff_html": "Si tens una pregunta interessant, una idea per escriure o pensar plegats, o una conversa que vulguis provocar — <a href=\"mailto:jorge.galindo@esade.edu\">jorge.galindo at esade.edu</a>.",
 
     "tray.head": "trajectòria · a part",
     "tray.title": "Abans — i en paral·lel.",
     "tray.politikon.head": "politikon",
     "tray.politikon.copy_html": "Vaig cofundar <em>Politikon</em> el 2010, col·lectiu d'anàlisi política i de polítiques públiques. Vam treure dos llibres col·lectius a Debate:",
+    "tray.politikon.subhead": "// més llibres",
     "tray.politikon.copy2_html": "A més, amb l'equip i la xarxa de col·laboradors d'EsadeEcPol vam publicar-ne un altre que per a mi continua l'esperit dels anteriors, a Deusto (Planeta):",
     "tray.research.head": "investigació acadèmica",
     "tray.research.scholar": "Resta de publicacions a Google Scholar →",
 
-    "footer.write": "// escriure",
+    "footer.write": "// si tens preguntes interessants, idees per escriure o pensar, o converses que vulguis provocar, escriu-me a",
     "footer.eof": "EOF"
   }
 }
