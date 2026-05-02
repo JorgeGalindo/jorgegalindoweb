@@ -491,36 +491,39 @@ strong { font-weight: 600; }
   padding: clamp(1.75rem, 4.5vw, 3rem) 0;
   position: relative;
   isolation: isolate;
+  overflow: visible;
 }
-/* Halo colorista detrás de la portada del libro: verde + lavanda combinados */
+.book > * { position: relative; z-index: 1; }
+/* Halo colorista detrás de la portada del libro: verde + lavanda combinados.
+   Usamos z-index:0 (no -1) y subimos opacidad para que sea claramente visible. */
 .book::before,
 .book::after {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   border-radius: 50%;
-  filter: blur(60px);
+  filter: blur(45px);
 }
 .book::before {
-  top: 12%;
-  left: 1%;
-  width: 28%;
-  height: 70%;
-  background: radial-gradient(circle at center, var(--green-pastel) 0%, transparent 65%);
-  opacity: .55;
+  top: 8%;
+  left: -3%;
+  width: 32%;
+  height: 75%;
+  background: radial-gradient(circle at center, var(--green-pastel) 0%, transparent 60%);
+  opacity: .85;
 }
 .book::after {
-  top: 38%;
-  left: 16%;
-  width: 18%;
-  height: 45%;
-  background: radial-gradient(circle at center, var(--lav-pastel) 0%, transparent 65%);
-  opacity: .42;
+  top: 35%;
+  left: 18%;
+  width: 22%;
+  height: 50%;
+  background: radial-gradient(circle at center, var(--lav-pastel) 0%, transparent 60%);
+  opacity: .7;
 }
 @media (max-width: 800px) {
-  .book::before { left: -5%; width: 60%; }
-  .book::after { left: 30%; width: 40%; opacity: .35; }
+  .book::before { left: -10%; width: 65%; }
+  .book::after { left: 30%; width: 50%; opacity: .55; }
 }
 
 .book__inner {
@@ -630,32 +633,32 @@ strong { font-weight: 600; }
   position: relative;
   isolation: isolate;
 }
-/* Halo de tres colores difuminados detrás del grid de briefs:
-   teal, lavanda y verde, asignados a las tres tarjetas pero sin tocarlas. */
+.ecpol__briefs > * { position: relative; z-index: 1; }
+/* Halos detrás del grid de briefs: teal arriba-derecha + lavanda abajo-izq. */
 .ecpol__briefs::before,
 .ecpol__briefs::after {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   border-radius: 50%;
-  filter: blur(70px);
+  filter: blur(55px);
 }
 .ecpol__briefs::before {
-  top: -10%;
-  right: -8%;
-  width: 42%;
-  height: 80%;
-  background: radial-gradient(circle at center, var(--teal-pastel) 0%, transparent 62%);
-  opacity: .45;
+  top: -8%;
+  right: -6%;
+  width: 45%;
+  height: 85%;
+  background: radial-gradient(circle at center, var(--teal-pastel) 0%, transparent 58%);
+  opacity: .8;
 }
 .ecpol__briefs::after {
-  bottom: -12%;
-  left: 18%;
-  width: 38%;
-  height: 70%;
-  background: radial-gradient(circle at center, var(--lav-pastel) 0%, transparent 62%);
-  opacity: .35;
+  bottom: -10%;
+  left: 12%;
+  width: 42%;
+  height: 75%;
+  background: radial-gradient(circle at center, var(--lav-pastel) 0%, transparent 58%);
+  opacity: .65;
 }
 .ecpol__briefs-head {
   font-family: var(--mono);
@@ -1048,19 +1051,34 @@ strong { font-weight: 600; }
   position: relative;
   isolation: isolate;
 }
-/* Halo discreto detrás del bloque de libros antiguos + paper: verde-haze suave. */
+.quien__tray > * { position: relative; z-index: 1; }
+/* Halo discreto detrás del bloque de libros antiguos + paper: verde-pastel. */
 .quien__tray::before {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
-  bottom: -5%;
-  right: -8%;
-  width: 40%;
-  height: 65%;
-  background: radial-gradient(circle at center, var(--green-haze) 0%, transparent 65%);
-  filter: blur(70px);
+  bottom: 0;
+  right: -5%;
+  width: 45%;
+  height: 70%;
+  background: radial-gradient(circle at center, var(--green-pastel) 0%, transparent 60%);
+  filter: blur(55px);
   opacity: .7;
+  border-radius: 50%;
+}
+.quien__tray::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  top: 5%;
+  left: -8%;
+  width: 30%;
+  height: 50%;
+  background: radial-gradient(circle at center, var(--lav-pastel) 0%, transparent 60%);
+  filter: blur(50px);
+  opacity: .55;
   border-radius: 50%;
 }
 
