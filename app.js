@@ -183,7 +183,7 @@
             }
             charSpans[k].classList.remove("char--pending");
             const ch = titlePlain[k];
-            const variance = 8 + Math.random() * 18;
+            const variance = 4 + Math.random() * 12;
             k++;
             setTimeout(tickT, titleBaseSpeed + variance + pauseFor(ch));
           };
