@@ -121,41 +121,63 @@
       }
     };
 
+    // posiciones globales de char donde acaba una phrase (para pausa extra)
+    const phraseEndIdx = new Set();
+
     try {
-      const tempContainer = document.createElement("div");
-      tempContainer.innerHTML = titleOriginalHTML;
-      const titlePlain = (tempContainer.textContent || "").replace(/\s+/g, " ").trim();
+      // Buscar phrases. Si no hay, tratar todo el titular como una.
+      let phraseEls = Array.from(titleEl.querySelectorAll(".phrase"));
+      if (!phraseEls.length) phraseEls = [titleEl];
 
-      // palabra a destacar en el titular según el idioma activo
-      const emKeyword = (i18nDict && i18nDict["hero.title_em_keyword"]) || "criterio";
-      const emMatch = titlePlain.match(new RegExp(emKeyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-      const emRange = emMatch ? { start: emMatch.index, end: emMatch.index + emMatch[0].length } : null;
+      for (let p = 0; p < phraseEls.length; p++) {
+        const phraseEl = phraseEls[p];
+        const phraseHTML = phraseEl.innerHTML;
+        const tempContainer = document.createElement("div");
+        tempContainer.innerHTML = phraseHTML;
+        const phrasePlain = (tempContainer.textContent || "").replace(/\s+/g, " ").trim();
 
-      const tokens = titlePlain.split(/(\s+)/);
-      const fragments = [];
-      let offset = 0;
-      for (const token of tokens) {
-        if (token === "") continue;
-        if (/^\s+$/.test(token)) {
-          fragments.push(token);
+        // Detectar <em> dentro de la phrase via DOM (no via i18n)
+        const emEl = tempContainer.querySelector("em");
+        const emText = emEl ? emEl.textContent.replace(/\s+/g, " ").trim() : null;
+        const emRange = emText
+          ? (() => {
+              const m = phrasePlain.match(new RegExp(emText.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+              return m ? { start: m.index, end: m.index + m[0].length } : null;
+            })()
+          : null;
+
+        const tokens = phrasePlain.split(/(\s+)/);
+        const fragments = [];
+        let offset = 0;
+        for (const token of tokens) {
+          if (token === "") continue;
+          if (/^\s+$/.test(token)) {
+            fragments.push(token);
+            offset += token.length;
+            continue;
+          }
+          const wordChars = [];
+          for (let k = 0; k < token.length; k++) {
+            const globalIdx = offset + k;
+            const isEm = emRange && globalIdx >= emRange.start && globalIdx < emRange.end;
+            wordChars.push(
+              `<span class="char${isEm ? " char--em" : ""} char--pending">${escapeHtml(token[k])}</span>`
+            );
+          }
+          fragments.push(`<span class="word">${wordChars.join("")}</span>`);
           offset += token.length;
-          continue;
         }
-        const wordChars = [];
-        for (let k = 0; k < token.length; k++) {
-          const globalIdx = offset + k;
-          const isEm = emRange && globalIdx >= emRange.start && globalIdx < emRange.end;
-          wordChars.push(
-            `<span class="char${isEm ? " char--em" : ""} char--pending">${escapeHtml(token[k])}</span>`
-          );
+        phraseEl.innerHTML = fragments.join("");
+
+        const phraseChars = Array.from(phraseEl.querySelectorAll(".char"));
+        charSpans = charSpans.concat(phraseChars);
+        if (p < phraseEls.length - 1 && phraseChars.length > 0) {
+          phraseEndIdx.add(charSpans.length - 1);
         }
-        fragments.push(`<span class="word">${wordChars.join("")}</span>`);
-        offset += token.length;
       }
-      fragments.push('<span class="caret-inline" aria-hidden="true">▌</span>');
-      titleEl.innerHTML = fragments.join("");
-      charSpans = Array.from(titleEl.querySelectorAll(".char"));
-      console.log("[typing] setup ok ·", charSpans.length, "chars");
+
+      titleEl.insertAdjacentHTML("beforeend", '<span class="caret-inline" aria-hidden="true">▌</span>');
+      console.log("[typing] setup ok ·", charSpans.length, "chars · phrases:", phraseEls.length);
 
       if (reduceMotion) {
         finishAllNow();
@@ -166,6 +188,7 @@
 
         const helloSpeed = 90;
         const titleBaseSpeed = 28;
+        const PHRASE_PAUSE = 600;
         const pauseFor = (ch) => {
           if (ch === "." || ch === "?" || ch === "!") return 180;
           if (ch === "," || ch === ";" || ch === ":") return 90;
@@ -182,10 +205,11 @@
               return;
             }
             charSpans[k].classList.remove("char--pending");
-            const ch = titlePlain[k];
+            const ch = (charSpans[k].textContent || "").trim();
             const variance = 4 + Math.random() * 12;
+            const phraseExtra = phraseEndIdx.has(k) ? PHRASE_PAUSE : 0;
             k++;
-            setTimeout(tickT, titleBaseSpeed + variance + pauseFor(ch));
+            setTimeout(tickT, titleBaseSpeed + variance + pauseFor(ch) + phraseExtra);
           };
           tickT();
         };
