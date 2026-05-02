@@ -85,12 +85,12 @@
 
     "book.head": "the book",
     "book.title": "Tres millones de viviendas",
-    "book.subtitle": "From scarcity to abundance.",
+    "book.subtitle": "How to move from scarcity to abundance.",
     "book.point1_html": "<strong>A full diagnosis:</strong> the data linking housing scarcity, growing demand and runaway prices.",
     "book.point2_html": "<strong>The unexpected culprits:</strong> who's keeping the few flats that are available.",
     "book.point3_html": "<strong>The paralysis:</strong> why neither the market nor the state respond to the incentives of high prices and citizen demand.",
-    "book.point4_html": "<strong>Systemic traps:</strong> how we block ourselves.",
-    "book.point5_html": "<strong>Solutions that can actually work:</strong> concrete policies to leave scarcity behind and unlock opportunity.",
+    "book.point4_html": "<strong>The system's traps:</strong> how we block ourselves.",
+    "book.point5_html": "<strong>Solutions that can work:</strong> concrete policies to leave scarcity behind and unlock opportunity.",
     "book.point6_html": "<strong>How to activate them</strong> so they're viable and fair, and the new homes go to those who need them.",
 
     "ecpol.head": "esadeecpol",
@@ -114,16 +114,16 @@
 
     "directo.head": "live",
     "directo.events_head": "events",
-    "directo.media_head": "media · selected",
+    "directo.media_head": "in media · featured",
 
     "quien.head": "who",
     "quien.lede": "PhD in applied sociology from the University of Geneva (funded by the Swiss National Science Foundation). Double MPP from Erasmus University Rotterdam and Central European University, on an Erasmus Mundus scholarship.",
     "quien.bio_html": "I've been an external political risk analyst for <strong>Eurasia Group</strong> since 2014. I've written book chapters and participated in expert networks and events with the <strong>ILO</strong>, the <strong>Generalitat de Catalunya</strong>, <strong>Fundación ICO</strong>, <strong>Fundación Carolina</strong>, <strong>FEPS</strong>, the <strong>Friedrich Naumann Foundation</strong> and <strong>Fundación Gabo</strong>, among others.",
 
     "tray.politikon.head": "politikon",
-    "tray.politikon.copy_html": "I co-founded <em>Politikon</em> in 2010, a collective for political analysis and public policy. Two collective books with Debate:",
+    "tray.politikon.copy_html": "I co-founded <em>Politikon</em> in 2010, a collective for political analysis and public policy. We published two collective books with Debate:",
     "tray.politikon.subhead": "// more books",
-    "tray.politikon.copy2_html": "Later, with the EsadeEcPol team and network of collaborators, we published another one that for me continues the spirit of the previous two — with Deusto (Planeta):",
+    "tray.politikon.copy2_html": "Also, with the EsadeEcPol team and network of collaborators, we published another one that for me continues the spirit of the previous two — with Deusto (Planeta):",
     "tray.research.head": "academic research",
     "tray.research.scholar": "Rest of publications on Google Scholar →",
 
