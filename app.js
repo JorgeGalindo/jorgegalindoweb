@@ -164,11 +164,11 @@
         const helloText = "Hola :)";
         helloEl.innerHTML = helloCaret;
 
-        const helloSpeed = 130;
-        const titleBaseSpeed = 45;
+        const helloSpeed = 90;
+        const titleBaseSpeed = 28;
         const pauseFor = (ch) => {
-          if (ch === "." || ch === "?" || ch === "!") return 280;
-          if (ch === "," || ch === ";" || ch === ":") return 140;
+          if (ch === "." || ch === "?" || ch === "!") return 180;
+          if (ch === "," || ch === ";" || ch === ":") return 90;
           return 0;
         };
 
