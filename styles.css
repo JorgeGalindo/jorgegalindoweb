@@ -183,28 +183,37 @@ strong { font-weight: 600; }
 .nav__list a:hover { color: var(--ink); }
 .nav__list a:hover::after { transform: scaleX(1); }
 
-/* ── language switcher: gris discreto en el nav, junto a las demás entradas ── */
+/* ── separador vertical entre el último link del nav y el switcher de idioma ── */
+.nav__sep {
+  width: 1px;
+  align-self: stretch;
+  margin: .25rem .25rem;
+  background: var(--rule);
+}
+
+/* ── language switcher: muy discreto, gris claro; el activo solo subrayado ── */
 .nav__lang {
   display: inline-flex;
   align-items: center;
   gap: .35rem;
-  color: var(--ink-mute);
 }
 .nav__lang a {
-  color: var(--ink-mute);
+  color: var(--rule-strong);    /* gris claro, casi línea */
   text-decoration: none;
   padding-bottom: 2px;
+  font-size: .92em;             /* un punto menos que el resto del nav */
 }
-.nav__lang a::after { background: var(--ink-mute); }
-.nav__lang a:hover { color: var(--ink-soft); }
+.nav__lang a::after { display: none; }   /* sin underline animada del nav */
+.nav__lang a:hover { color: var(--ink-mute); }
 .nav__lang a.is-active {
-  color: var(--ink);
+  color: var(--ink-mute);
   text-decoration: underline;
   text-decoration-color: var(--rule-strong);
+  text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 .nav__lang-sep {
-  color: var(--rule-strong);
+  color: var(--rule);           /* aún más tenue que los textos */
   user-select: none;
 }
 
