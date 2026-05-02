@@ -2,5 +2,6 @@
 node_modules/
 *.log
 *.bak
+*.pdf
 .env
 .env.*
