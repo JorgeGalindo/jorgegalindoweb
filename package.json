@@ -1,0 +1,16 @@
+{
+  "name": "jorgegalindoweb",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "jorgegalindo.eu — author page",
+  "scripts": {
+    "dev": "python3 -m http.server 5173",
+    "feeds:build": "node feeds/build.mjs",
+    "feeds:dry": "node feeds/build.mjs --dry",
+    "feeds:no-images": "node feeds/build.mjs --no-images"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

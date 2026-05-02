@@ -1,0 +1,69 @@
+{
+  "events": [
+    {
+      "when": "Junio 2026",
+      "title": "Tres millones de viviendas · con Carme Trilla",
+      "where": "CCCB, <em>Barcelona</em>"
+    },
+    {
+      "when": "Junio 2026",
+      "title": "Keynote · Inmocionarte",
+      "where": "<em>Barcelona</em>"
+    },
+    {
+      "when": "Mayo 2026",
+      "title": "Debate sobre vivienda",
+      "where": "Círculo de Bellas Artes, <em>Madrid</em>"
+    },
+    {
+      "when": "Mayo 2026",
+      "title": "Presentación de Tres millones de viviendas · con Javier López e Irene Tinagli",
+      "where": "Parlamento Europeo, <em>Bruselas</em>"
+    },
+    {
+      "when": "Mayo 2026",
+      "title": "La crisis europea de vivienda · con Felipe Carozzi (LSE) y Matthew Baldwin (Comisión Europea)",
+      "where": "Esade, <em>Barcelona</em>"
+    },
+    {
+      "when": "Mayo 2026",
+      "title": "Intervención · Junta Anual del Instituto de Empresa Familiar",
+      "where": "<em>Barcelona</em>"
+    },
+    {
+      "when": "Mayo 2026",
+      "title": "Keynote · Encuentro anual de jóvenes economistas del Consejo General de Economistas",
+      "where": "<em>Valencia</em>"
+    },
+    {
+      "when": "Abril 2026",
+      "title": "Conversación con Dan Jørgensen, Comisario Europeo de Energía y Vivienda",
+      "where": "<em>Barcelona</em>"
+    },
+    {
+      "when": "Enero 2026",
+      "title": "Conversación con José García Montalvo, Lorenzo Milá y Alejandra Herranz",
+      "where": "Fundación Juan March, <em>Madrid</em>"
+    }
+  ],
+  "media": [
+    {
+      "outlet": "Bloomberg",
+      "date": "2026",
+      "title": "Spain's child poverty crisis",
+      "url": "https://www.bloomberg.com/features/2026-spain-child-poverty/"
+    },
+    {
+      "outlet": "El Confidencial",
+      "date": "2025-10",
+      "title": "<em>Pausa</em>, de Marta García Aller",
+      "url": "https://www.elconfidencial.com/economia/2025-10-16/pausa-vivienda-trauma-burbuja_4227210/"
+    },
+    {
+      "outlet": "El País · La Contra",
+      "date": "2025-09",
+      "title": "“Estamos traumatizados por la burbuja inmobiliaria”",
+      "url": "https://elpais.com/economia/2025-09-08/jorge-galindo-sociologo-estamos-traumatizados-por-la-burbuja-inmobiliaria.html"
+    }
+  ]
+}
