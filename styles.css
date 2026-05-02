@@ -487,7 +487,42 @@ strong { font-weight: 600; }
 
 /* ─────────────────────────  book  ───────────────────────── */
 
-.book { padding: clamp(1.75rem, 4.5vw, 3rem) 0; }
+.book {
+  padding: clamp(1.75rem, 4.5vw, 3rem) 0;
+  position: relative;
+  isolation: isolate;
+}
+/* Halo colorista detrás de la portada del libro: verde + lavanda combinados */
+.book::before,
+.book::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(60px);
+}
+.book::before {
+  top: 12%;
+  left: 1%;
+  width: 28%;
+  height: 70%;
+  background: radial-gradient(circle at center, var(--green-pastel) 0%, transparent 65%);
+  opacity: .55;
+}
+.book::after {
+  top: 38%;
+  left: 16%;
+  width: 18%;
+  height: 45%;
+  background: radial-gradient(circle at center, var(--lav-pastel) 0%, transparent 65%);
+  opacity: .42;
+}
+@media (max-width: 800px) {
+  .book::before { left: -5%; width: 60%; }
+  .book::after { left: 30%; width: 40%; opacity: .35; }
+}
+
 .book__inner {
   max-width: var(--max-wide);
   display: grid;
@@ -592,6 +627,35 @@ strong { font-weight: 600; }
 .ecpol__briefs {
   margin-top: clamp(1.5rem, 4vw, 2.25rem);
   padding-top: clamp(1rem, 3vw, 1.5rem);
+  position: relative;
+  isolation: isolate;
+}
+/* Halo de tres colores difuminados detrás del grid de briefs:
+   teal, lavanda y verde, asignados a las tres tarjetas pero sin tocarlas. */
+.ecpol__briefs::before,
+.ecpol__briefs::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(70px);
+}
+.ecpol__briefs::before {
+  top: -10%;
+  right: -8%;
+  width: 42%;
+  height: 80%;
+  background: radial-gradient(circle at center, var(--teal-pastel) 0%, transparent 62%);
+  opacity: .45;
+}
+.ecpol__briefs::after {
+  bottom: -12%;
+  left: 18%;
+  width: 38%;
+  height: 70%;
+  background: radial-gradient(circle at center, var(--lav-pastel) 0%, transparent 62%);
+  opacity: .35;
 }
 .ecpol__briefs-head {
   font-family: var(--mono);
@@ -981,6 +1045,23 @@ strong { font-weight: 600; }
 /* Trayectoria fusionada dentro de quién: bloque inferior, separado solo por aire. */
 .quien__tray {
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  position: relative;
+  isolation: isolate;
+}
+/* Halo discreto detrás del bloque de libros antiguos + paper: verde-haze suave. */
+.quien__tray::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  bottom: -5%;
+  right: -8%;
+  width: 40%;
+  height: 65%;
+  background: radial-gradient(circle at center, var(--green-haze) 0%, transparent 65%);
+  filter: blur(70px);
+  opacity: .7;
+  border-radius: 50%;
 }
 
 /* ─────────────────────────  trayectoria  ───────────────────────── */
