@@ -884,12 +884,9 @@ strong { font-weight: 600; }
   font-weight: 400 !important;
 }
 
-/* Trayectoria fusionada dentro de quién: bloque inferior con un poco de aire
-   y una línea fina de separación con la bio. */
+/* Trayectoria fusionada dentro de quién: bloque inferior, separado solo por aire. */
 .quien__tray {
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
-  padding-top: clamp(1rem, 3vw, 1.75rem);
-  border-top: 1px solid var(--rule);
 }
 
 /* ─────────────────────────  trayectoria  ───────────────────────── */
@@ -904,10 +901,7 @@ strong { font-weight: 600; }
 }
 @media (max-width: 760px) { .tray__grid { grid-template-columns: 1fr; } }
 
-.tray__col {
-  border-top: 1px solid var(--rule);
-  padding-top: 1.25rem;
-}
+.tray__col { /* sin línea superior; el grid ya da el ritmo */ }
 .tray__col-title {
   font-family: var(--mono);
   font-size: .82rem;
@@ -937,9 +931,7 @@ strong { font-weight: 600; }
   gap: .75rem;
   align-items: center;
   padding: .55rem 0;
-  border-bottom: 1px dotted var(--rule);
 }
-.tray__books li:last-child { border-bottom: 0; }
 .tray__book-title { min-width: 0; }
 .tray__subhead {
   font-family: var(--mono);
