@@ -259,6 +259,10 @@ strong { font-weight: 600; }
   color: var(--green-deep);
   font-weight: 500;
 }
+/* Frases del titular: cada una es un bloque, con pausa visual entre ellas. */
+.hero__title .phrase { display: block; }
+.hero__title .phrase + .phrase { margin-top: .55em; }
+
 /* Typing por carácter dentro de spans por palabra. Los espacios entre palabras son
    literales en el DOM (nunca dentro de un span), así el navegador respeta los
    line-breaks naturales. Cada .word va con `white-space: nowrap` para no romperse

@@ -13,8 +13,8 @@
     "nav.quien": "quién",
 
     "hero.hello": "Hola :)",
-    "hero.title_html": "Trabajo convirtiendo conocimiento y datos rigurosos en <em>criterio</em> para responder las preguntas que nos importan como sociedad, con ideas sólidas, viables y de calidad.",
-    "hero.title_em_keyword": "criterio",
+    "hero.phrase1_html": "Busco ideas sólidas y viables para el progreso.",
+    "hero.phrase2_html": "Trabajo convirtiendo conocimiento y datos rigurosos en <em>criterio</em> para responder las preguntas que nos importan como sociedad.",
     "hero.sig_html": "Dirijo <a href=\"#ecpol\">EsadeEcPol</a>. He publicado <a href=\"#libro\"><em>Tres millones de viviendas</em></a> (Debate). Escribo en <a href=\"https://elpais.com/autor/jorge-galindo/\" rel=\"noopener\">El País</a>.",
 
     "book.head": "el libro",
@@ -83,8 +83,8 @@
     "nav.quien": "who",
 
     "hero.hello": "Hi :)",
-    "hero.title_html": "I turn knowledge and rigorous data into <em>judgement</em> to answer the questions that matter to us as a society, with solid, viable, quality ideas.",
-    "hero.title_em_keyword": "judgement",
+    "hero.phrase1_html": "I look for solid, viable ideas for progress.",
+    "hero.phrase2_html": "I turn knowledge and rigorous data into <em>judgement</em> to answer the questions that matter to us as a society.",
     "hero.sig_html": "I run <a href=\"#ecpol\">EsadeEcPol</a>. I'm the author of <a href=\"#libro\"><em>Tres millones de viviendas</em></a> (Debate). I write for <a href=\"https://elpais.com/autor/jorge-galindo/\" rel=\"noopener\">El País</a>.",
 
     "book.head": "the book",
@@ -153,8 +153,8 @@
     "nav.quien": "qui",
 
     "hero.hello": "Hola :)",
-    "hero.title_html": "Treballo convertint coneixement i dades rigoroses en <em>criteri</em> per respondre les preguntes que ens importen com a societat, amb idees sòlides, viables i de qualitat.",
-    "hero.title_em_keyword": "criteri",
+    "hero.phrase1_html": "Busco idees sòlides i viables per al progrés.",
+    "hero.phrase2_html": "Treballo convertint coneixement i dades rigoroses en <em>criteri</em> per respondre les preguntes que ens importen com a societat.",
     "hero.sig_html": "Dirigeixo <a href=\"#ecpol\">EsadeEcPol</a>. He publicat <a href=\"#libro\"><em>Tres millones de viviendas</em></a> (Debate). Escric a <a href=\"https://elpais.com/autor/jorge-galindo/\" rel=\"noopener\">El País</a>.",
 
     "book.head": "el llibre",
