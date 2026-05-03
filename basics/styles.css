@@ -6,6 +6,26 @@
 /* offset for sticky nav on anchor jumps */
 :where(#book, #articles, [id^="a-"]) { scroll-margin-top: 80px; }
 
+/* prominent "back home" link in nav (upper right) */
+.nav__list .nav__back {
+  color: var(--ink);
+  font-weight: 500;
+  padding: .35rem .65rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  margin-left: .25rem;
+  transition: border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), background var(--t-fast) var(--ease);
+}
+.nav__list .nav__back::after { display: none; }
+.nav__list .nav__back:hover {
+  color: var(--green-deep);
+  border-color: var(--green);
+  background: var(--green-soft);
+}
+@media (max-width: 600px) {
+  .nav__list .nav__back { padding: .25rem .5rem; font-size: .72rem; }
+}
+
 /* ─── hero override: tighten + recolor cue ─── */
 .basics__hero { padding: clamp(3.25rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 3rem); }
 .basics__hero .hero__title {

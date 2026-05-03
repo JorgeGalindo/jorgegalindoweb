@@ -1250,3 +1250,21 @@ strong { font-weight: 600; }
 /* ── basics: visible only when active language is English ── */
 .basics-link { display: none; }
 html[lang="en"] .basics-link { display: block; }
+
+.hero__sig-note {
+  margin: .9rem 0 0;
+  font-family: var(--mono);
+  font-size: .82rem;
+  color: var(--ink-mute);
+  letter-spacing: .01em;
+}
+.hero__sig-note a {
+  color: var(--ink-mute);
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+  transition: color var(--t-fast) var(--ease), text-decoration-color var(--t-fast) var(--ease);
+}
+.hero__sig-note a:hover {
+  color: var(--ink);
+  text-decoration-color: var(--green);
+}
