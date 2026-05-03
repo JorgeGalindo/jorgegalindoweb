@@ -1246,3 +1246,7 @@ strong { font-weight: 600; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ── basics: visible only when active language is English ── */
+.basics-link { display: none; }
+html[lang="en"] .basics-link { display: block; }

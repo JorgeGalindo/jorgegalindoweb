@@ -292,6 +292,7 @@
   }
   .basics__num { padding-top: 0; }
   .basics__toc li { flex-wrap: wrap; }
-  .basics__toc span { flex-basis: 100%; padding-left: 2.6rem; }
+  .basics__toc a { flex: 1 1 0; min-width: 0; }
+  .basics__toc span { flex: 0 0 100%; padding-left: 2.6rem; }
   .article__pull { padding: .9rem 1rem; }
 }
