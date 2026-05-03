@@ -1261,9 +1261,11 @@ html[lang="en"] .basics-link { display: block; }
   max-width: var(--max);
 }
 .hero__sig-note a {
-  color: var(--ink-soft);
+  color: var(--ink);
+  font-weight: 500;
+  font-style: normal;
   text-decoration: none;
-  border-bottom: 1px dotted transparent;
+  border-bottom: 1px solid var(--rule-strong);
   padding-bottom: 1px;
   transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
 }
