@@ -1,6 +1,26 @@
 {
-  "syncedAt": "2026-05-02",
+  "syncedAt": "2026-06-01",
   "items": [
+    {
+      "kind": "columna",
+      "kindLabel": "El País",
+      "source": "El País",
+      "date": "2026-05-13",
+      "title": "El debate | ¿El trabajo ha perdido su valor para los jóvenes?",
+      "excerpt": "",
+      "url": "https://elpais.com/opinion/2026-05-13/el-debate-el-trabajo-ha-perdido-su-valor-para-los-jovenes.html",
+      "image": "assets/log/d631627b64f5.jpg"
+    },
+    {
+      "kind": "ecpol",
+      "kindLabel": "EsadeEcPol",
+      "source": "EsadeEcPol",
+      "date": "2026-05-08",
+      "title": "Radiografía del alquiler residencial en España en manos de personas físicas",
+      "excerpt": "El debate público sobre la vivienda en alquiler en España está copado por dos cuestiones de base: a qué se dedican las viviendas que no se usan como residencia habitual por sus propietarios (segunda residencia, vivienda ",
+      "url": "https://www.esade.edu/ecpol/es/blog/radiografia-del-alquiler-residencial-en-espana-en-manos-de-personas-fisicas/",
+      "image": "assets/log/31fbae07105b.png"
+    },
     {
       "kind": "columna",
       "kindLabel": "El País",
@@ -9,7 +29,7 @@
       "title": "La pobreza infantil es un problema de empleo",
       "excerpt": "",
       "url": "https://elpais.com/economia/2026-04-22/la-pobreza-infantil-es-un-problema-de-empleo.html",
-      "image": ""
+      "image": "assets/log/87e34761b1eb.jpg"
     },
     {
       "kind": "columna",
@@ -19,7 +39,7 @@
       "title": "A quién protege el escudo",
       "excerpt": "",
       "url": "https://elpais.com/espana/2026-03-21/a-quien-protege-el-escudo.html",
-      "image": ""
+      "image": "assets/log/0dbec598c160.jpg"
     },
     {
       "kind": "ecpol",
@@ -29,7 +49,7 @@
       "title": "Inquilinos cada vez más ricos: la paradoja del esfuerzo en alquiler",
       "excerpt": "Ideas clave → La tasa de esfuerzo en alquiler de mercado ha caído en España y en Catalunya en los últimos años en claro contraste con la percepción general. El dato parece en gran medida un artefacto de composición: los ",
       "url": "https://www.esade.edu/ecpol/es/blog/inquilinos-ricos-esfuerzo-alquiler/",
-      "image": ""
+      "image": "assets/log/d72ac1e06588.png"
     },
     {
       "kind": "ecpol",
@@ -39,7 +59,7 @@
       "title": "Ante un nuevo shock energético e inflacionario, ¿qué aprendimos de 2022 para decidir qué medidas activar?",
       "excerpt": "El (evidente) canal energético El ataque coordinado de Estados Unidos e Israel contra Irán el 28 de febrero ha desencadenado la mayor perturbación del mercado petrolero en décadas. Ante la escasez actual y esperada, el B",
       "url": "https://www.esade.edu/ecpol/es/blog/antes-medidas-crisis-energetica/",
-      "image": ""
+      "image": "assets/log/5695f17d5de7.png"
     },
     {
       "kind": "ecpol",
@@ -49,7 +69,7 @@
       "title": "La pobreza relativa de la juventud en España: emancipada vs. viviendo en casa de sus padres",
       "excerpt": "Los resultados definitivos de la ECV 2025, publicados por el INE el 5 de febrero, confirman una mejora general de los indicadores de pobreza en España. La tasa de riesgo de pobreza relativa cayó al 19,5%, su menor nivel ",
       "url": "https://www.esade.edu/ecpol/es/blog/la-pobreza-relativa-de-la-juventud-en-espana-emancipada-vs-viviendo-en-casa-de-sus-padres/",
-      "image": ""
+      "image": "assets/log/8aab895e292c.png"
     },
     {
       "kind": "columna",
@@ -59,7 +79,7 @@
       "title": "Crecer y no llegar",
       "excerpt": "",
       "url": "https://elpais.com/economia/2026-01-14/crecer-y-no-llegar.html",
-      "image": ""
+      "image": "assets/log/a56f0768594b.jpg"
     },
     {
       "kind": "columna",
@@ -69,7 +89,7 @@
       "title": "¿Construir baja los precios? Dónde, para quién y cómo",
       "excerpt": "",
       "url": "https://elpais.com/economia/2025-12-09/construir-baja-los-precios-donde-para-quien-y-como.html",
-      "image": ""
+      "image": "assets/log/e225019c0bde.jpg"
     },
     {
       "kind": "columna",
@@ -79,7 +99,7 @@
       "title": "Qué ha pasado realmente con el PIB español",
       "excerpt": "",
       "url": "https://elpais.com/economia/2025-08-29/que-ha-pasado-realmente-con-el-pib-espanol.html",
-      "image": ""
+      "image": "assets/log/884ca6482bc2.jpg"
     },
     {
       "kind": "columna",
@@ -89,7 +109,7 @@
       "title": "Ampliar las aulas, no solo los permisos",
       "excerpt": "",
       "url": "https://elpais.com/economia/2025-07-31/ampliar-las-aulas-no-solo-los-permisos.html",
-      "image": ""
+      "image": "assets/log/de7e1748d582.jpg"
     },
     {
       "kind": "columna",
@@ -99,7 +119,7 @@
       "title": "Acabar con la pobreza: más allá del Ingreso Mínimo Vital actual",
       "excerpt": "",
       "url": "https://elpais.com/economia/2025-07-10/acabar-con-la-pobreza-mas-alla-del-ingreso-minimo-vital-actual.html",
-      "image": ""
+      "image": "assets/log/f91653ee153b.jpg"
     },
     {
       "kind": "columna",
@@ -109,7 +129,7 @@
       "title": "Para Trump la única forma de ganar es que pierda la otra parte. Pero este atajo es una trampa",
       "excerpt": "",
       "url": "https://elpais.com/ideas/2025-05-17/para-trump-la-unica-forma-de-ganar-es-que-pierda-la-otra-parte-pero-este-atajo-es-una-trampa.html",
-      "image": ""
+      "image": "assets/log/63e00b1ace6e.jpg"
     },
     {
       "kind": "columna",
@@ -119,7 +139,7 @@
       "title": "Cañones o mantequilla: la falsa dicotomía de la defensa",
       "excerpt": "",
       "url": "https://elpais.com/espana/2025-03-14/canones-o-mantequilla-la-falsa-dicotomia-de-la-defensa.html",
-      "image": ""
+      "image": "assets/log/1649e059f274.jpg"
     },
     {
       "kind": "columna",
@@ -129,7 +149,7 @@
       "title": "En vivienda hace falta más: una combinación del plan de Sánchez y el de Feijóo",
       "excerpt": "",
       "url": "https://elpais.com/espana/2025-01-14/en-vivienda-hace-falta-mas-una-combinacion-del-plan-de-sanchez-y-el-de-feijoo.html",
-      "image": ""
+      "image": "assets/log/90487c4a1abf.jpg"
     },
     {
       "kind": "columna",
@@ -139,7 +159,7 @@
       "title": "Por qué las ayudas no llegan",
       "excerpt": "",
       "url": "https://elpais.com/espana/2024-12-16/por-que-las-ayudas-no-llegan.html",
-      "image": ""
+      "image": "assets/log/9d50603fb48b.jpg"
     },
     {
       "kind": "columna",
@@ -149,7 +169,7 @@
       "title": "El mapa de los apartamentos turísticos en la ciudad de Buenos Aires",
       "excerpt": "Un tercio de las casi 33.000 ofertas activas a día de hoy están en Palermo, pero es San Nicolás el que presenta una mayor concentración sobre el total de viviendas",
       "url": "https://elpais.com/argentina/2024-10-03/el-mapa-de-los-apartamentos-turisticos-en-la-ciudad-de-buenos-aires.html",
-      "image": ""
+      "image": "assets/log/54d931e6d328.jpg"
     },
     {
       "kind": "columna",
@@ -159,7 +179,7 @@
       "title": "El mapa de los apartamentos turísticos en la Región Metropolitana de Santiago de Chile",
       "excerpt": "Algunas zonas como Huelén u Hospital Militar concentran hasta 10 alojamientos por cada 100 viviendas, de los 10.400 activos en la plataforma Airbnb analizados aquí",
       "url": "https://elpais.com/chile/2024-10-03/el-mapa-de-los-apartamentos-turisticos-en-la-region-metropolitana-de-santiago.html",
-      "image": ""
+      "image": "assets/log/2f1aaa97d612.jpg"
     },
     {
       "kind": "columna",
@@ -169,7 +189,7 @@
       "title": "El mapa de los apartamentos turísticos en la Ciudad de México",
       "excerpt": "Los más de 22.000 alojamientos que pueden considerarse activos en la plataforma Airbnb se concentran de forma extraordinaria en las colonias de Condesa, Roma, Juárez y Polanco",
       "url": "https://elpais.com/mexico/2024-09-02/el-mapa-de-los-apartamentos-turisticos-en-la-ciudad-de-mexico.html",
-      "image": ""
+      "image": "assets/log/fbf59390d96b.jpg"
     },
     {
       "kind": "columna",
@@ -179,7 +199,7 @@
       "title": "Qué ha pasado realmente con la pobreza bajo el mandato de López Obrador",
       "excerpt": "El dato de pobreza se redujo a pesar de carencias persistentes, gracias a los ingresos por trabajo más que a las transferencias públicas, cuyo aumento no parece haber ayudado al 10% más necesitado. 2024 servirá para conf",
       "url": "https://elpais.com/mexico/2024-04-21/que-ha-pasado-realmente-con-la-pobreza-bajo-el-mandato-de-lopez-obrador.html",
-      "image": ""
+      "image": "assets/log/c8d944734336.jpg"
     },
     {
       "kind": "columna",
@@ -189,7 +209,7 @@
       "title": "Las encuestas dejan abierta la segunda vuelta en Argentina con una ligera ventaja para Milei",
       "excerpt": "Los 1,8 puntos que le saca la derecha a Sergio Massa caen dentro del margen de error, y están sujetos a una alta incertidumbre por los variados pronósticos entre encuestadoras y la subestimación del candidato oficialista",
       "url": "https://elpais.com/argentina/2023-11-17/las-encuestas-dejan-abierta-la-segunda-vuelta-en-argentina-con-una-ligera-ventaja-para-milei.html",
-      "image": ""
+      "image": "assets/log/086126d23fe9.png"
     },
     {
       "kind": "columna",
@@ -199,7 +219,7 @@
       "title": "Análisis final de encuestas: Galán domina, pero la segunda vuelta de Bogotá sigue abierta",
       "excerpt": "Carlos Fernando Galán domina en las encuestas, pero las últimas mediciones están divididas sobre su posible victoria en primera vuelta, y a quién enfrentaría en segunda de no lograrlo",
       "url": "https://elpais.com/america-colombia/2023-10-28/el-analisis-de-las-encuestas-deja-abierta-la-segunda-vuelta-en-bogota.html",
-      "image": ""
+      "image": "assets/log/bf1fffcb6fea.jpg"
     },
     {
       "kind": "columna",
@@ -209,7 +229,7 @@
       "title": "Las encuestas fallaron en el ganador de las elecciones en Argentina, pero acertaron en lo esencial",
       "excerpt": "La mayoría de los sondeos adelantó una segunda vuelta entre el peronismo y la ultraderecha",
       "url": "https://elpais.com/argentina/2023-10-23/las-encuestas-fallaron-en-el-ganador-de-las-elecciones-en-argentina-pero-acertaron-en-lo-esencial.html",
-      "image": ""
+      "image": "assets/log/72f69bb7ebfe.jpg"
     },
     {
       "kind": "columna",
@@ -219,7 +239,7 @@
       "title": "Galán se acerca a la victoria en primera vuelta",
       "excerpt": "Pero para lograrlo debe coordinar voto y paradójicamente eso solo lo consigue si crece su rival",
       "url": "https://elpais.com/america-colombia/2023-10-23/galan-se-acerca-a-la-victoria-en-primera-vuelta.html",
-      "image": ""
+      "image": "assets/log/738adde919cc.jpg"
     },
     {
       "kind": "columna",
@@ -229,7 +249,7 @@
       "title": "Milei llega al día de la elección argentina primero en las encuestas, pero en una competencia ajustada",
       "excerpt": "Sergio Massa se perfila como su rival en una segunda vuelta que, salvo un vuelco de última semana en las encuestas, será un enfrentamiento entre la vieja izquierda y la nueva ultraderecha",
       "url": "https://elpais.com/argentina/2023-10-20/milei-llega-al-dia-de-la-eleccion-argentina-primero-en-las-encuestas-pero-en-una-competencia-ajustada.html",
-      "image": ""
+      "image": "assets/log/91ac65ce3c79.png"
     },
     {
       "kind": "columna",
@@ -239,7 +259,7 @@
       "title": "Galán lidera las encuestas para la Alcaldía de Bogotá, sin una victoria asegurada",
       "excerpt": "La novedad de la segunda vuelta, que es probable según los sondeos, abre tres posibilidades de carrera final: por la izquierda (Bolívar), por el centro tecnocrático (Oviedo) o, menos factible, por la derecha tradicional ",
       "url": "https://elpais.com/america-colombia/2023-10-05/galan-lidera-las-encuestas-para-la-alcaldia-de-bogota-sin-una-victoria-asegurada.html",
-      "image": ""
+      "image": "assets/log/81ef96c0e8e6.png"
     },
     {
       "kind": "columna",
@@ -249,7 +269,7 @@
       "title": "Milei encabeza las encuestas, pero sin bastarle para ganar en primera vuelta",
       "excerpt": "",
       "url": "https://elpais.com/argentina/2023-10-01/milei-encabeza-las-encuestas-pero-sin-bastarle-para-ganar-en-primera-vuelta.html",
-      "image": ""
+      "image": "assets/log/d355dc9332c5.png"
     },
     {
       "kind": "columna",
@@ -259,7 +279,7 @@
       "title": "Sheinbaum encabeza las encuestas en el cierre de la campaña para la candidatura presidencial de Morena",
       "excerpt": "La exjefa de gobierno de la capital ha mantenido firme su ventaja frente a Marcelo Ebrard para reemplazar a López Obrador en las elecciones del año que viene",
       "url": "https://elpais.com/mexico/2023-08-27/sheinbaum-encabeza-las-encuestas-en-el-cierre-de-la-campana-para-la-candidatura-presidencial-de-morena.html",
-      "image": ""
+      "image": "assets/log/8bd47828062a.png"
     },
     {
       "kind": "columna",
@@ -269,7 +289,7 @@
       "title": "Contra la inequidad intergeneracional: transferir fondos a los jóvenes como se hace con los pensionistas",
       "excerpt": "Los partidos miman más a los jubilados que a la juventud. Una cuenta de ahorro individual (no universal) podría ser parte de la solución",
       "url": "https://elpais.com/ideas/2023-07-17/contra-la-inequidad-intergeneracional-transferir-fondos-a-los-jovenes-como-se-hace-con-los-pensionistas.html",
-      "image": ""
+      "image": "assets/log/86df1a0e21f7.jpg"
     },
     {
       "kind": "columna",
@@ -279,7 +299,7 @@
       "title": "Sheinbaum lidera las encuestas de atributos: honesta, cumplidora y cercana a la gente; Ebrard gana en conocimiento del país",
       "excerpt": "La exalcaldesa de la capital es vista como fiel representante de la 4T y cercana a la gente. Ebrard, rezagado al inicio de la carrera por las percepciones, salvo en conocimiento del país",
       "url": "https://elpais.com/mexico/2023-06-26/sheinbaum-lidera-las-encuestas-de-atributos-honesta-cumplidora-y-cercana-a-la-gente-ebrard-gana-en-conocimiento-del-pais.html",
-      "image": ""
+      "image": "assets/log/efb7b4a36a50.jpg"
     },
     {
       "kind": "columna",
@@ -289,7 +309,7 @@
       "title": "Sheinbaum lidera las encuestas previas a la elección de Morena por delante de Ebrard",
       "excerpt": "A falta de confirmar los detalles del método de elección y el hecho de que ningún candidato tenga un dominio aplastante aconsejan cautela a la hora de interpretar los sondeos. El Consejo Nacional definirá este domingo la",
       "url": "https://elpais.com/mexico/2023-06-11/sheinbaum-lidera-las-encuestas-previas-a-la-eleccion-de-morena-por-delante-de-ebrard.html",
-      "image": ""
+      "image": "assets/log/287bc150faa3.png"
     },
     {
       "kind": "columna",
@@ -299,7 +319,7 @@
       "title": "Dónde están los siete millones de colombianos asegurados por EPS en riesgo de quiebra",
       "excerpt": "La mitad de estos ciudadanos en riesgo viven en Antioquia y Valle del Cauca: en Antioquia, la mayoría de ellos están inscritos en Savia Salud. En el Valle, SOS y Emssanar concentran 937.000 y 575.000",
       "url": "https://elpais.com/america-colombia/2023-06-05/donde-estan-los-siete-millones-de-colombianos-asegurados-por-eps-en-riesgo-de-quiebra.html",
-      "image": ""
+      "image": "assets/log/2ff1a80e1ab9.jpg"
     },
     {
       "kind": "columna",
@@ -309,7 +329,7 @@
       "title": "Las encuestas aciertan a la ganadora del Estado de México, pero sobreestiman a Morena",
       "excerpt": "Delfina Gómez, candidata oficialista y aliada de López Obrador, acabó 3,4 puntos por debajo de lo esperado. Su rival Alejandra del Moral, arropada por toda la oposición, sacó un punto más de lo esperado",
       "url": "https://elpais.com/mexico/elecciones-mexicanas/2023-06-05/las-encuestas-aciertan-a-la-ganadora-del-estado-de-mexico-pero-sobreestiman-a-morena.html",
-      "image": ""
+      "image": "assets/log/13c96ec3b8df.png"
     },
     {
       "kind": "columna",
@@ -319,7 +339,7 @@
       "title": "Delfina Gómez mantiene la ventaja sobre Alejandra del Moral en la recta final de la campaña por el Estado de México",
       "excerpt": "La priista Alejandra del Moral cierra la brecha respecto de Delfina Gómez en los últimos días, pero la morenista sigue liderando las preferencias electorales por más de 10 puntos",
       "url": "https://elpais.com/mexico/2023-05-29/delfina-gomez-mantiene-la-ventaja-sobre-alejandra-del-moral-en-la-recta-final-de-la-campana-por-el-estado-de-mexico.html",
-      "image": ""
+      "image": "assets/log/03f77d34adfc.jpg"
     },
     {
       "kind": "columna",
@@ -329,7 +349,7 @@
       "title": "Los mapas que revelan la cobertura dispar de la salud en Colombia",
       "excerpt": "La amplia cobertura del sistema de salud colombiano es muy distinta para las zonas rurales y los municipios pequeños, donde además el régimen subsidiado carga con la mayoría del peso de mantenerla",
       "url": "https://elpais.com/america-colombia/2023-05-29/los-mapas-que-revelan-la-cobertura-dispar-de-la-salud-en-colombia.html",
-      "image": ""
+      "image": "assets/log/1f7bc023ee25.jpg"
     },
     {
       "kind": "columna",
@@ -339,7 +359,7 @@
       "title": "Delfina Gómez lidera con claridad todas las encuestas para la gubernatura del Estado de México",
       "excerpt": "A tres semanas del día de la elección, todas las mediciones de intención del voto ponen a la abanderada de Morena por delante de su rival del PRI, Alejandra del Moral, según un recuento realizado por EL PAÍS",
       "url": "https://elpais.com/mexico/2023-05-15/delfina-gomez-lidera-con-claridad-todas-las-encuestas-para-la-gubernatura-del-estado-de-mexico.html",
-      "image": ""
+      "image": "assets/log/6a1a8ebc6e52.jpg"
     },
     {
       "kind": "columna",
@@ -349,7 +369,7 @@
       "title": "Cómo logró Kast la mayoría en una Constitución que nunca quiso",
       "excerpt": "No hay paradoja en Chile: solo una confusión entre movilización y representatividad que y permitió a la extrema derecha capitalizar en su “no” y adquirir poder de veto en el proceso constitucional chileno",
       "url": "https://elpais.com/chile/2023-05-08/como-logro-kast-la-mayoria-en-una-constitucion-que-nunca-quiso.html",
-      "image": ""
+      "image": "assets/log/439eed7a9f7e.jpg"
     },
     {
       "kind": "columna",
@@ -359,7 +379,7 @@
       "title": "De Chile a Haití: las desiguales emisiones de CO₂ en América Latina",
       "excerpt": "Chile, Venezuela y Paraguay están a la cabeza de emisiones de dióxido de carbono en una región con grandes diferencias en cuanto a la contribución de su población. Los ricos son los que más contaminan",
       "url": "https://elpais.com/internacional/2023-02-22/de-chile-a-haiti-las-desiguales-emisiones-de-co-en-america-latina.html",
-      "image": ""
+      "image": "assets/log/6cffa69a6ce2.jpg"
     },
     {
       "kind": "columna",
@@ -369,7 +389,7 @@
       "title": "La mejora de la salud en Colombia: invertir en las personas más que cambiar la estructura",
       "excerpt": "Los indicadores de cobertura colombianos no son especialmente bajos, y mejorarlos exige de esfuerzos específicos, quizás empezando por el capital humano",
       "url": "https://elpais.com/america-colombia/2023-02-14/la-mejora-de-la-salud-en-colombia-invertir-en-las-personas-mas-que-cambiar-la-estructura.html",
-      "image": ""
+      "image": "assets/log/5fd82d678701.jpg"
     },
     {
       "kind": "columna",
@@ -379,7 +399,7 @@
       "title": "La paradoja de la desigualdad en Colombia: no dejan de concentrar riqueza pero sí ingresos",
       "excerpt": "El 1% más rico del país concentra un tercio de la riqueza y un 17% de los ingresos. Pero mientras la segunda cifra (más baja) se resiste a caer, la primera (más alta) ha bajado sensiblemente en la última década.",
       "url": "https://elpais.com/america-colombia/2022-12-12/la-paradoja-de-la-desigualdad-en-colombia-no-dejan-de-concentrar-riqueza-pero-si-ingresos.html",
-      "image": ""
+      "image": "assets/log/3ac764dac1a3.jpg"
     },
     {
       "kind": "columna",
@@ -389,7 +409,7 @@
       "title": "Radiografía de la crisis de fondo de la democracia peruana",
       "excerpt": "El autogolpe fallido de Pedro Castillo se produjo en un país que desconfía de su propio sistema, pero en el que ninguno de los actores que aspiran a beneficiarse de esa desconfianza es lo suficientemente fuerte como para",
       "url": "https://elpais.com/america/internacional/2022-12-08/radiografia-de-la-crisis-de-fondo-de-la-democracia-peruana.html",
-      "image": ""
+      "image": "assets/log/a60ac9e6a169.jpg"
     },
     {
       "kind": "columna",
@@ -399,7 +419,7 @@
       "title": "Los pronósticos de las elecciones de EE UU anticipan una victoria republicana en la Cámara y un Senado muy igualado",
       "excerpt": "La atención de los comicios del próximo martes, que marcarán la segunda mitad del mandato de Biden, se centran en la carrera por el Senado en Estados como Georgia y Nevada",
       "url": "https://elpais.com/internacional/2022-11-01/los-pronosticos-de-las-elecciones-de-ee-uu-anticipan-una-victoria-republicana-en-la-camara-y-un-senado-muy-igualado.html",
-      "image": ""
+      "image": "assets/log/ec439ff37e26.jpg"
     },
     {
       "kind": "columna",
@@ -409,7 +429,7 @@
       "title": "Las encuestas recuperan su credibilidad en Brasil",
       "excerpt": "Los sondeos aciertan en la victoria de Lula contra Bolsonaro y lo apretado del resultado final; desacreditan con ello las dudas bolsonaristas, pese a la falta de pronóstico sobre millones de indecisos",
       "url": "https://elpais.com/internacional/2022-10-31/las-encuestas-recuperan-su-credibilidad-en-brasil.html",
-      "image": ""
+      "image": "assets/log/112d3db22fdf.jpg"
     },
     {
       "kind": "columna",
@@ -419,7 +439,7 @@
       "title": "Lula llega a las elecciones con una ventaja de solo 2,5 puntos sobre Bolsonaro en las encuestas",
       "excerpt": "El expresidente ha visto reducida su ventaja, y ninguno de los dos llega al 50% en los sondeos; el resultado queda en manos del 6,8% de votantes probables que todavía está indeciso",
       "url": "https://elpais.com/internacional/2022-10-30/lula-llega-a-las-elecciones-con-una-ventaja-de-solo-25-puntos-sobre-bolsonaro-en-las-encuestas.html",
-      "image": ""
+      "image": "assets/log/cf1f4bc5fd22.jpg"
     },
     {
       "kind": "columna",
@@ -429,7 +449,7 @@
       "title": "Bolsonaro encurta a distância sobre Lula nos inquéritos na reta final",
       "excerpt": "O atual presidente subiu constantemente nas urnas depois de ter superado as expectativas no dia 2 de outubro, enquanto Lula, que ainda está à frente, perdeu terreno.",
       "url": "https://elpais.com/america/2022-10-27/bolsonaro-encurta-a-distancia-sobre-lula-nos-inqueritos-na-reta-final.html",
-      "image": ""
+      "image": "assets/log/89e4e9917082.jpg"
     },
     {
       "kind": "columna",
@@ -439,7 +459,7 @@
       "title": "Bolsonaro recorta distancias a Lula en las encuestas en la recta final",
       "excerpt": "El actual presidente ha subido de manera sostenida en los sondeos después de superar las expectativas el pasado 2 de octubre, mientras Lula, que sigue por delante, ha perdido pie",
       "url": "https://elpais.com/internacional/2022-10-24/bolsonaro-le-recorta-distancias-en-las-encuestas-al-liderazgo-que-lula-mantiene.html",
-      "image": ""
+      "image": "assets/log/e3031d4d666f.jpg"
     },
     {
       "kind": "columna",
@@ -449,7 +469,7 @@
       "title": "Lula encara la recta final liderando en unas encuestas que dejan espacio para la duda",
       "excerpt": "Bolsonaro va algo menos de 5 puntos por detrás en el promedio, pero la subestimación general del actual presidente en la primera vuelta hace dudar de hacia dónde caerá el 7,6% de indecisos decisivo",
       "url": "https://elpais.com/internacional/2022-10-16/lula-encara-la-recta-final-liderando-en-unas-encuestas-que-dejan-espacio-para-la-duda.html",
-      "image": ""
+      "image": "assets/log/1159d7a8cea3.png"
     },
     {
       "kind": "columna",
@@ -459,7 +479,7 @@
       "title": "Una propuesta más justa de revalorización de las pensiones",
       "excerpt": "En un contexto inflacionario y de subida de tipos de interés, una revalorización universal que concentra las transferencias en pensionistas de alto poder adquisitivo no parece ni justa ni razonable",
       "url": "https://elpais.com/economia/2022-10-10/una-propuesta-mas-justa-de-revalorizacion-de-las-pensiones.html",
-      "image": ""
+      "image": "assets/log/1fce59007ec2.jpg"
     },
     {
       "kind": "columna",
@@ -479,7 +499,7 @@
       "title": "Lula crece en las encuestas y se acerca a la mayoría absoluta en la primera vuelta de las elecciones en Brasil",
       "excerpt": "La evolución de los sondeos en la última semana favorecen al candidato de izquierda, con una victoria inmediata dentro del margen de error",
       "url": "https://elpais.com/internacional/2022-10-01/lula-crece-en-las-encuestas-y-se-acerca-a-la-mayoria-absoluta-en-la-primera-vuelta-de-las-eleccciones-en-brasil.html",
-      "image": ""
+      "image": "assets/log/85e14816869f.jpg"
     },
     {
       "kind": "columna",
@@ -489,7 +509,7 @@
       "title": "Lula mantiene su ventaja sobre Bolsonaro en la recta final de las encuestas",
       "excerpt": "A pesar del dominio en todos los sondeos a una semana de la votación, ninguno apunta a que el expresidente de izquierda supere el 50% de votos válidos para evitar la segunda vuelta",
       "url": "https://elpais.com/internacional/2022-09-26/lula-mantiene-su-ventaja-sobre-bolsonaro-en-la-recta-final-de-las-encuestas.html",
-      "image": ""
+      "image": "assets/log/871371a759bc.jpg"
     },
     {
       "kind": "columna",
@@ -499,7 +519,7 @@
       "title": "Radiografía de la violencia homicida en la era López Obrador",
       "excerpt": "Los homicidios en México - madera",
       "url": "https://elpais.com/mexico/2022-08-28/radiografia-de-la-violencia-homicida-en-la-era-lopez-obrador.html",
-      "image": ""
+      "image": "assets/log/52e84fbe4ffa.png"
     },
     {
       "kind": "columna",
@@ -509,7 +529,7 @@
       "title": "Las encuestas en Chile dan ventaja al rechazo a la nueva Constitución con una gran cantidad de indecisos",
       "excerpt": "Los últimos sondeos hasta el pasado 19 de agosto aún dejaban a 1 de cada 7 votantes en la indecisión, un volumen mayor al 10% de ventaja que mantiene el “no” en un patrón de voto marcado por la polarización ideológica",
       "url": "https://elpais.com/chile/2022-08-27/las-encuestas-en-chile-dan-ventaja-al-rechazo-a-la-nueva-constitucion-con-un-gran-contingente-de-indecisos.html",
-      "image": ""
+      "image": "assets/log/a4fef7bf36ef.png"
     },
     {
       "kind": "columna",
@@ -519,7 +539,7 @@
       "title": "Los extraordinarios salarios de los congresistas colombianos",
       "excerpt": "Teniendo en cuenta el nivel de vida de cada país, Colombia tiene a los congresistas mejor pagados de las democracias de América Latina, y también a los que más ganan respecto al resto de la población",
       "url": "https://elpais.com/america-colombia/2022-08-19/los-extraordinarios-salarios-de-los-congresistas-colombianos.html",
-      "image": ""
+      "image": "assets/log/3b6f47273a40.png"
     },
     {
       "kind": "columna",
@@ -529,7 +549,7 @@
       "title": "El muy difícil camino de Colombia para dejar atrás el gas",
       "excerpt": "Las cifras de consumo y producción, así como las condiciones de partida, indican que el proceso para dejar de lado el gas podría ser mucho más largo y difícil de lo que sugiere el decidido anuncio del Gobierno Petro de n",
       "url": "https://elpais.com/america-colombia/2022-08-14/el-muy-dificil-camino-de-colombia-para-dejar-atras-el-gas.html",
-      "image": ""
+      "image": "assets/log/9c9522f0bc9d.jpg"
     },
     {
       "kind": "columna",
@@ -539,7 +559,7 @@
       "title": "Cómo encontrará Petro un balance entre eficacia y consenso",
       "excerpt": "Colombia ha sufrido una caía de la fe en el sistema aún mayor a la de sus vecinos; para recuperarla, el nuevo presidente deberá evitar la tentación de los atajos institucionales, encontrando un balance en el dilema entre",
       "url": "https://elpais.com/america-colombia/2022-08-12/como-encontrara-petro-un-balance-entre-eficacia-y-consenso.html",
-      "image": ""
+      "image": "assets/log/ec67df15e766.jpg"
     },
     {
       "kind": "columna",
@@ -549,7 +569,7 @@
       "title": "El impacto potencial de la reforma tributaria de Petro en cuatro gráficos clave",
       "excerpt": "Progresiva por el aumento de la renta y del patrimonio, pero con riesgo de afectar más a las rentas bajas en el consumo, la nueva propuesta de cambio fiscal podría tener un impacto mixto",
       "url": "https://elpais.com/america-colombia/2022-08-09/el-impacto-potencial-de-la-reforma-tributaria-de-petro-en-cuatro-graficos-clave.html",
-      "image": ""
+      "image": "assets/log/6438e118942d.jpg"
     },
     {
       "kind": "columna",
@@ -559,7 +579,7 @@
       "title": "Los dilemas insalvables de Petro",
       "excerpt": "El nuevo presidente mantiene un discurso de máximos, pero probablemente tendrá que elegir entre atacar todos los problemas que aquejan a Colombia o mantener una coalición amplia e ideológicamente diversa",
       "url": "https://elpais.com/america-colombia/2022-08-08/los-dilemas-insalvables-para-el-nuevo-gobierno-de-gustavo-petro.html",
-      "image": ""
+      "image": "assets/log/c3cd47efd631.jpg"
     },
     {
       "kind": "columna",
@@ -569,7 +589,7 @@
       "title": "Cómo cambió Colombia bajo Iván Duque, en cifras",
       "excerpt": "Cuatro años de mandato marcados por una pandemia, la pobreza que trajo consigo, el repunte de la violencia y de la inseguridad",
       "url": "https://elpais.com/america-colombia/2022-08-05/como-cambio-colombia-bajo-ivan-duque-en-cifras.html",
-      "image": ""
+      "image": "assets/log/a7b66bedc749.jpg"
     },
     {
       "kind": "columna",
@@ -579,27 +599,7 @@
       "title": "El incierto futuro de la derecha colombiana",
       "excerpt": "Ninguna de las pulsiones del diverso espacio de la derecha parte con ventaja en la batalla que se abre por su dominio, tanto en la oposición a Petro como en las elecciones que vendrán",
       "url": "https://elpais.com/america-colombia/elecciones-presidenciales/2022-06-27/el-incierto-futuro-de-la-derecha-colombiana.html",
-      "image": ""
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-06-26",
-      "title": "Un multiciclo de protestas como catalizador",
-      "excerpt": "Un movimiento de opinión hacia el progresismo, el aumento de las protestas y movilizaciones tanto genéricas como específicas, y una insatisfacción con la democracia que se rebaja con la elección de nuevos líderes ayudan ",
-      "url": "https://elpais.com/ideas/2022-06-26/por-que-la-nueva-izquierda-es-electoralmente-competitiva-en-america-latina.html",
-      "image": ""
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-06-23",
-      "title": "La forma cambiante de las dos Colombias",
-      "excerpt": "En la segunda vuelta de las elecciones presidenciales el voto en el conservador centro andino volvió a diferenciarse del periférico progresista, pero el fuerte empuje de la izquierda en esta campaña y la movilización ter",
-      "url": "https://elpais.com/america-colombia/elecciones-presidenciales/2022-06-23/la-forma-cambiante-de-las-dos-colombias.html",
-      "image": ""
+      "image": "assets/log/a54f9ecdeff2.jpg"
     }
   ]
 }
