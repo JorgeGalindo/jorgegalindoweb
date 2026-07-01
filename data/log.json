@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-06-01",
+  "syncedAt": "2026-07-01",
   "items": [
     {
       "kind": "columna",
@@ -10,16 +10,6 @@
       "excerpt": "",
       "url": "https://elpais.com/opinion/2026-05-13/el-debate-el-trabajo-ha-perdido-su-valor-para-los-jovenes.html",
       "image": "assets/log/d631627b64f5.jpg"
-    },
-    {
-      "kind": "ecpol",
-      "kindLabel": "EsadeEcPol",
-      "source": "EsadeEcPol",
-      "date": "2026-05-08",
-      "title": "Radiografía del alquiler residencial en España en manos de personas físicas",
-      "excerpt": "El debate público sobre la vivienda en alquiler en España está copado por dos cuestiones de base: a qué se dedican las viviendas que no se usan como residencia habitual por sus propietarios (segunda residencia, vivienda ",
-      "url": "https://www.esade.edu/ecpol/es/blog/radiografia-del-alquiler-residencial-en-espana-en-manos-de-personas-fisicas/",
-      "image": "assets/log/31fbae07105b.png"
     },
     {
       "kind": "columna",
@@ -47,7 +37,7 @@
       "source": "EsadeEcPol",
       "date": "2026-03-19",
       "title": "Inquilinos cada vez más ricos: la paradoja del esfuerzo en alquiler",
-      "excerpt": "Ideas clave → La tasa de esfuerzo en alquiler de mercado ha caído en España y en Catalunya en los últimos años en claro contraste con la percepción general. El dato parece en gran medida un artefacto de composición: los ",
+      "excerpt": "A la hora de diagnosticar de manera diferencial los problemas del mercado de la vivienda en España respecto al contexto internacional, destacamos negativamente por el elevado sobreesfuerzo en el alquiler de mercado de lo",
       "url": "https://www.esade.edu/ecpol/es/blog/inquilinos-ricos-esfuerzo-alquiler/",
       "image": "assets/log/d72ac1e06588.png"
     },
@@ -600,6 +590,16 @@
       "excerpt": "Ninguna de las pulsiones del diverso espacio de la derecha parte con ventaja en la batalla que se abre por su dominio, tanto en la oposición a Petro como en las elecciones que vendrán",
       "url": "https://elpais.com/america-colombia/elecciones-presidenciales/2022-06-27/el-incierto-futuro-de-la-derecha-colombiana.html",
       "image": "assets/log/a54f9ecdeff2.jpg"
+    },
+    {
+      "kind": "columna",
+      "kindLabel": "El País",
+      "source": "El País",
+      "date": "2022-06-26",
+      "title": "Un multiciclo de protestas como catalizador",
+      "excerpt": "Un movimiento de opinión hacia el progresismo, el aumento de las protestas y movilizaciones tanto genéricas como específicas, y una insatisfacción con la democracia que se rebaja con la elección de nuevos líderes ayudan ",
+      "url": "https://elpais.com/ideas/2022-06-26/por-que-la-nueva-izquierda-es-electoralmente-competitiva-en-america-latina.html",
+      "image": "assets/log/44f93a22735c.jpg"
     }
   ]
 }
