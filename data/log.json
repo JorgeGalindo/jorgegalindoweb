@@ -1,6 +1,16 @@
 {
-  "syncedAt": "2026-07-01",
+  "syncedAt": "2026-08-01",
   "items": [
+    {
+      "kind": "columna",
+      "kindLabel": "El País",
+      "source": "El País",
+      "date": "2026-07-31",
+      "title": "Tener razón mientras todo arde",
+      "excerpt": "¿Cómo ha respondido nuestro debate político a un enemigo común como el fuego? Con una decepcionante, pero ya no sorprendente, división",
+      "url": "https://elpais.com/opinion/2026-07-31/tener-razon-mientras-todo-arde.html",
+      "image": "assets/log/65093a263760.jpg"
+    },
     {
       "kind": "columna",
       "kindLabel": "El País",
@@ -10,6 +20,16 @@
       "excerpt": "",
       "url": "https://elpais.com/opinion/2026-05-13/el-debate-el-trabajo-ha-perdido-su-valor-para-los-jovenes.html",
       "image": "assets/log/d631627b64f5.jpg"
+    },
+    {
+      "kind": "ecpol",
+      "kindLabel": "EsadeEcPol",
+      "source": "EsadeEcPol",
+      "date": "2026-05-08",
+      "title": "Radiografía del alquiler residencial en España en manos de personas físicas",
+      "excerpt": "El debate público sobre la vivienda en alquiler en España está copado por dos cuestiones de base: a qué se dedican las viviendas que no se usan como residencia habitual por sus propietarios (segunda residencia, vivienda ",
+      "url": "https://www.esade.edu/ecpol/es/blog/radiografia-del-alquiler-residencial-en-espana-en-manos-de-personas-fisicas/",
+      "image": "assets/log/31fbae07105b.png"
     },
     {
       "kind": "columna",
@@ -580,26 +600,6 @@
       "excerpt": "Cuatro años de mandato marcados por una pandemia, la pobreza que trajo consigo, el repunte de la violencia y de la inseguridad",
       "url": "https://elpais.com/america-colombia/2022-08-05/como-cambio-colombia-bajo-ivan-duque-en-cifras.html",
       "image": "assets/log/a7b66bedc749.jpg"
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-06-27",
-      "title": "El incierto futuro de la derecha colombiana",
-      "excerpt": "Ninguna de las pulsiones del diverso espacio de la derecha parte con ventaja en la batalla que se abre por su dominio, tanto en la oposición a Petro como en las elecciones que vendrán",
-      "url": "https://elpais.com/america-colombia/elecciones-presidenciales/2022-06-27/el-incierto-futuro-de-la-derecha-colombiana.html",
-      "image": "assets/log/a54f9ecdeff2.jpg"
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-06-26",
-      "title": "Un multiciclo de protestas como catalizador",
-      "excerpt": "Un movimiento de opinión hacia el progresismo, el aumento de las protestas y movilizaciones tanto genéricas como específicas, y una insatisfacción con la democracia que se rebaja con la elección de nuevos líderes ayudan ",
-      "url": "https://elpais.com/ideas/2022-06-26/por-que-la-nueva-izquierda-es-electoralmente-competitiva-en-america-latina.html",
-      "image": "assets/log/44f93a22735c.jpg"
     }
   ]
 }
