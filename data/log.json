@@ -1,6 +1,16 @@
 {
-  "syncedAt": "2026-08-01",
+  "syncedAt": "2026-09-01",
   "items": [
+    {
+      "kind": "columna",
+      "kindLabel": "El País",
+      "source": "El País",
+      "date": "2026-08-26",
+      "title": "Descongelar la vivienda",
+      "excerpt": "Una política de izquierdas debe tener como objetivo que haya tantas casas como sea posible para quienes van a vivir en ellas, y primero para quien más padece no tener una",
+      "url": "https://elpais.com/opinion/2026-08-26/descongelar-la-vivienda.html",
+      "image": "assets/log/7ce6b8edc36c.jpg"
+    },
     {
       "kind": "columna",
       "kindLabel": "El País",
@@ -590,16 +600,6 @@
       "excerpt": "El nuevo presidente mantiene un discurso de máximos, pero probablemente tendrá que elegir entre atacar todos los problemas que aquejan a Colombia o mantener una coalición amplia e ideológicamente diversa",
       "url": "https://elpais.com/america-colombia/2022-08-08/los-dilemas-insalvables-para-el-nuevo-gobierno-de-gustavo-petro.html",
       "image": "assets/log/c3cd47efd631.jpg"
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-08-05",
-      "title": "Cómo cambió Colombia bajo Iván Duque, en cifras",
-      "excerpt": "Cuatro años de mandato marcados por una pandemia, la pobreza que trajo consigo, el repunte de la violencia y de la inseguridad",
-      "url": "https://elpais.com/america-colombia/2022-08-05/como-cambio-colombia-bajo-ivan-duque-en-cifras.html",
-      "image": "assets/log/a7b66bedc749.jpg"
     }
   ]
 }
