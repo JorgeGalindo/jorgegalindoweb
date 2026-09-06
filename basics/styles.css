@@ -4,7 +4,7 @@
    ───────────────────────────────────────────────────────────── */
 
 /* offset for sticky nav on anchor jumps */
-:where(#book, #articles, [id^="a-"]) { scroll-margin-top: 80px; }
+:where(#book, #articles, [id^="a-"]) { scroll-margin-top: var(--anchor-offset); }
 
 /* prominent "back home" link in nav (upper right) */
 .nav__list .nav__back {

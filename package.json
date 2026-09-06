@@ -5,6 +5,8 @@
   "type": "module",
   "description": "jorgegalindo.eu — author page",
   "scripts": {
+    "build": "node feeds/render.mjs",
+    "test": "node --test feeds/*.test.mjs",
     "dev": "python3 -m http.server 5173",
     "feeds:build": "node feeds/build.mjs",
     "feeds:dry": "node feeds/build.mjs --dry",

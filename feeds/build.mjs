@@ -24,13 +24,16 @@
  * Lo robusto: aunque alguna fuente falle, las demás se generan igual.
  */
 
-import { writeFile, mkdir, access } from "node:fs/promises";
+import { readFile, writeFile, mkdir, access } from "node:fs/promises";
 import { createWriteStream } from "node:fs";
 import { pipeline } from "node:stream/promises";
 import { Readable } from "node:stream";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { retainPosts } from "./retain.mjs";
+import { validPost } from "./content.mjs";
+import { renderFeeds } from "./render.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -38,6 +41,7 @@ const ROOT = path.resolve(__dirname, "..");
 const ARGS = new Set(process.argv.slice(2));
 const DRY = ARGS.has("--dry");
 const NO_IMAGES = ARGS.has("--no-images");
+const ONLY_SOURCE = [...ARGS].find(arg => arg.startsWith('--source='))?.split('=')[1];
 
 // User-Agent de navegador real: muchos medios bloquean UA "bot" con 403/Cloudflare.
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36";
@@ -100,13 +104,13 @@ const BROWSER_HEADERS = {
 };
 
 const fetchText = async (url) => {
-  const res = await fetch(url, { headers: BROWSER_HEADERS });
+  const res = await fetch(url, { headers: BROWSER_HEADERS, signal: AbortSignal.timeout(20000) });
   if (!res.ok) throw new Error(`${url} → ${res.status}`);
   return await res.text();
 };
 
 const fetchBuffer = async (url) => {
-  const res = await fetch(url, { headers: BROWSER_HEADERS });
+  const res = await fetch(url, { headers: BROWSER_HEADERS, signal: AbortSignal.timeout(20000) });
   if (!res.ok) throw new Error(`${url} → ${res.status}`);
   return Buffer.from(await res.arrayBuffer());
 };
@@ -166,7 +170,8 @@ const parseRssItems = (xml) => {
     }
     image = decodeEntities(image);
 
-    const isoDate = pubDate ? new Date(pubDate).toISOString().slice(0, 10) : "";
+    const parsedDate = new Date(pubDate);
+    const isoDate = Number.isNaN(parsedDate.getTime()) ? "" : parsedDate.toISOString().slice(0, 10);
     const excerpt = stripTags(description).slice(0, 220);
 
     if (title && link) items.push({ title, url: link, date: isoDate, excerpt, image });
@@ -285,6 +290,7 @@ const runSource = async (src) => {
     if (src.type === "rss") {
       const xml = await fetchText(src.url);
       raw = parseRssItems(xml);
+      if (!raw.length) throw new Error('RSS vacío o respuesta sin artículos; se conservará la copia anterior');
     } else if (src.type === "ecpol-combined") {
       raw = await runEcpolCombined(src);
     }
@@ -355,7 +361,7 @@ const buildSubstackTagMap = async () => {
       // que no son posts (saco-libro = página de venta interna, etc).
       const seen = new Set();
       const slugs = [];
-      const re = /href="(?:https:\/\/jorgegalindo\.substack\.com)?\/p\/([a-z0-9\-]+(?:-[0-9]+)?)["?/]/g;
+      const re = /href=["'](?:https:\/\/jorgegalindo\.substack\.com)?\/p\/([a-z0-9\-]+(?:-[0-9]+)?)["'?/]/g;
       let m;
       while ((m = re.exec(html))) {
         const slug = m[1].replace(/\\$/, "");
@@ -373,7 +379,7 @@ const buildSubstackTagMap = async () => {
         const enriched = await enrichSubstackPost(url);
         // cachear imagen localmente
         const cached = await cacheImage(enriched.image, "newsletter");
-        items.push({ ...enriched, image: cached || enriched.image, slug });
+        if (validPost(enriched)) items.push({ ...enriched, image: cached || enriched.image, slug });
       }
       map[tag] = items;
       console.log(`  ✓ tag ${tag}: ${items.length} posts (${slugs.length} totales)`);
@@ -389,30 +395,42 @@ const buildSubstackTagMap = async () => {
 
 const main = async () => {
   const today = new Date().toISOString().slice(0, 10);
+  const readPrevious = async name => {
+    try { return JSON.parse(await readFile(path.join(ROOT, 'data', `${name}.json`), 'utf8')); }
+    catch (error) { if (error.code === 'ENOENT') return {}; throw error; }
+  };
+  const [previousLog, previousNewsletter, previousTags] = await Promise.all([
+    readPrevious('log'), readPrevious('newsletter'), readPrevious('newsletter-tags'),
+  ]);
+  if (ONLY_SOURCE && !SOURCES.some(source => source.id === ONLY_SOURCE)) throw new Error(`Fuente desconocida: ${ONLY_SOURCE}`);
 
   const all = [];
-  for (const src of SOURCES) {
+  for (const src of SOURCES.filter(source => !ONLY_SOURCE || source.id === ONLY_SOURCE)) {
     const items = await runSource(src);
     all.push(...items);
   }
 
   console.log(`→ substack tags`);
-  const tagMap = await buildSubstackTagMap();
+  const tagMap = !ONLY_SOURCE || ONLY_SOURCE === 'substack' ? await buildSubstackTagMap() : {};
 
-  const newsletter = all.filter((x) => x.kind === "newsletter")
-    .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-  const log = all.filter((x) => x.kind !== "newsletter")
-    .sort((a, b) => (b.date || "").localeCompare(a.date || ""))
-    .slice(0, 60);
+  const freshNewsletter = all.filter(x => x.kind === 'newsletter' && validPost(x));
+  const freshLog = all.filter(x => x.kind !== 'newsletter' && validPost(x));
+  const newsletter = retainPosts(previousNewsletter.items, freshNewsletter, 30);
+  const log = retainPosts(previousLog.items, freshLog, 60);
 
-  const logOut = { syncedAt: today, items: log };
-  const newsletterOut = { syncedAt: today, items: newsletter.slice(0, 30) };
-  const tagOut = { syncedAt: today, ...tagMap };
+  const logOut = { syncedAt: freshLog.length ? today : previousLog.syncedAt || null, items: log };
+  const newsletterOut = { syncedAt: freshNewsletter.length ? today : previousNewsletter.syncedAt || null, items: newsletter };
+  const freshTags = Object.values(tagMap).some(items => items.some(validPost));
+  const tagOut = { syncedAt: freshTags ? today : previousTags.syncedAt || null };
+  for (const tag of SUBSTACK_TAGS) {
+    tagOut[tag] = retainPosts(previousTags[tag], tagMap[tag], 3);
+    if (!tagMap[tag]?.length && previousTags[tag]?.length) console.warn(`  ↳ ${tag}: conservados ${tagOut[tag].length} artículos anteriores`);
+  }
 
   if (DRY) {
     console.log("\n[dry] log:", log.length, "items");
     console.log("[dry] newsletter:", newsletter.length, "items");
-    console.log("[dry] tags:", Object.fromEntries(Object.entries(tagMap).map(([k, v]) => [k, v.length])));
+    console.log("[dry] tags:", Object.fromEntries(SUBSTACK_TAGS.map(tag => [tag, tagOut[tag].length])));
     return;
   }
 
@@ -420,6 +438,7 @@ const main = async () => {
   await writeFile(path.join(ROOT, "data/log.json"), JSON.stringify(logOut, null, 2));
   await writeFile(path.join(ROOT, "data/newsletter.json"), JSON.stringify(newsletterOut, null, 2));
   await writeFile(path.join(ROOT, "data/newsletter-tags.json"), JSON.stringify(tagOut, null, 2));
+  await renderFeeds(ROOT);
   console.log(`\n✓ data/log.json (${log.length})`);
   console.log(`✓ data/newsletter.json (${newsletter.length})`);
   console.log(`✓ data/newsletter-tags.json (${SUBSTACK_TAGS.length} tags)`);

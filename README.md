@@ -9,6 +9,7 @@ Página personal de Jorge Galindo. HTML / CSS / JS plano + cron mensual que sinc
 ├── index.html
 ├── styles.css
 ├── app.js
+├── hero.js                   ← animación independiente de la cabecera
 ├── CNAME                                    ← apunta a jorgegalindo.eu (GitHub Pages)
 ├── data/
 │   ├── log.json              ← generado por feeds/build.mjs (ecpol + el país)
@@ -38,13 +39,20 @@ npm run dev
 # → http://localhost:5173
 ```
 
+`npm run build` incluye los listados de artículos, newsletter y eventos en el HTML existente. Hay que ejecutarlo después de editar sus JSON. Así el contenido y los anclajes funcionan incluso si JavaScript o una petición de datos fallan. `npm test` comprueba que una actualización fallida no borre contenido publicado.
+
+La estructura, los textos y los seis anclajes de la portada se conservan. La paleta usa el verde agua de la cubierta del libro para fondos y un verde más oscuro para los textos. Las imágenes de `assets/optimized/` son versiones WebP sin pérdida, con los mismos píxeles que los originales.
+
 ## Sincronizar feeds
 
 ```bash
 npm run feeds:build       # produce los JSONs y cachea imágenes
 npm run feeds:dry         # no escribe nada, log a stdout
 npm run feeds:no-images   # solo JSON, sin descargar imágenes
+node feeds/build.mjs --source=substack --dry --no-images  # diagnosticar Substack sin escribir
 ```
+
+Si una fuente falla o devuelve artículos vacíos, se conserva su última copia válida, incluidas las imágenes ya cacheadas. La fecha de sincronización solo avanza si la fuente responde con artículos válidos. La actualización también regenera los listados del HTML, que el workflow publica junto con los JSON.
 
 Fuentes activas:
 
@@ -60,7 +68,9 @@ Si una fuente cambia URL o markup, ajustar `SOURCES` en `feeds/build.mjs`.
 
 ## Idiomas
 
-`data/i18n.json` contiene las traducciones para `es`, `en` y `ca`. El idioma se selecciona con el switcher del nav (que añade `?lang=xx` a la URL) y se persiste en `localStorage`. El typing del hero se ejecuta con el texto ya traducido.
+`data/i18n.json` contiene las traducciones para `es`, `en` y `ca`. El idioma se selecciona con el switcher del nav (que añade `?lang=xx` a la URL, conservando el anclaje) y se persiste en `localStorage`.
+
+La cabecera oscura presenta el mismo titular con una entrada automática por palabras y un subrayado verde sobre «criterio». `hero.js` es independiente del módulo de datos: arranca cuando la cabecera está a la vista, incluso si fallan las traducciones o los feeds. Los clics normales no cancelan la entrada; Escape la termina. Con movimiento reducido se usa solo un fundido por palabras, sin desplazamientos. El HTML completo sirve de respaldo si JavaScript falla y se restaura al finalizar (con un límite de 4 segundos).
 
 ## Deploy: GitHub Pages + jorgegalindo.eu
 
