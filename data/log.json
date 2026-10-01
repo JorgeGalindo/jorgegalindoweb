@@ -1,6 +1,36 @@
 {
-  "syncedAt": "2026-09-01",
+  "syncedAt": "2026-10-01",
   "items": [
+    {
+      "kind": "ecpol",
+      "kindLabel": "EsadeEcPol",
+      "source": "EsadeEcPol",
+      "date": "2026-10-01",
+      "title": "Valoración de los decretos de vivienda, medida por medida",
+      "excerpt": "El Gobierno ha aprobado dos Reales Decretos-ley (RDL) con una batería de reformas amplia y diversa sobre vivienda: el Real Decreto-ley 26/2026, de protección de la función social de la vivienda y ampliación de la oferta ",
+      "url": "https://www.esade.edu/ecpol/es/blog/valoracion-decretos-vivienda-medida-por-medida/",
+      "image": "assets/log/af152dc29b43.png"
+    },
+    {
+      "kind": "columna",
+      "kindLabel": "El País",
+      "source": "El País",
+      "date": "2026-09-30",
+      "title": "La vivienda necesita una política del sí",
+      "excerpt": "Necesitamos una batería de soluciones orientadas hacia el hacer. Que entiendan los incentivos y los usen para sumar, no para restar",
+      "url": "https://elpais.com/opinion/2026-09-30/la-vivienda-necesita-una-politica-del-si.html",
+      "image": "assets/log/ed7773640243.jpg"
+    },
+    {
+      "kind": "ecpol",
+      "kindLabel": "EsadeEcPol",
+      "source": "EsadeEcPol",
+      "date": "2026-09-29",
+      "title": "Envejecer de alquiler",
+      "excerpt": "Ideas clave → Entre los hogares cuya persona de referencia tiene 65 años o más, el alquiler a precio de mercado ha pasado del 3,7 % en 2008 al 5,5 % en 2025. → Hacia los 35 años, el 37,6 % de los hogares españoles encabe",
+      "url": "https://www.esade.edu/ecpol/es/blog/envejecer-de-alquiler-la-vejez-espanola-deja-de-estar-protegida-por-la-propiedad/",
+      "image": "assets/log/9bddeb0a3874.png"
+    },
     {
       "kind": "columna",
       "kindLabel": "El País",
@@ -570,36 +600,6 @@
       "excerpt": "Las cifras de consumo y producción, así como las condiciones de partida, indican que el proceso para dejar de lado el gas podría ser mucho más largo y difícil de lo que sugiere el decidido anuncio del Gobierno Petro de n",
       "url": "https://elpais.com/america-colombia/2022-08-14/el-muy-dificil-camino-de-colombia-para-dejar-atras-el-gas.html",
       "image": "assets/log/9c9522f0bc9d.jpg"
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-08-12",
-      "title": "Cómo encontrará Petro un balance entre eficacia y consenso",
-      "excerpt": "Colombia ha sufrido una caía de la fe en el sistema aún mayor a la de sus vecinos; para recuperarla, el nuevo presidente deberá evitar la tentación de los atajos institucionales, encontrando un balance en el dilema entre",
-      "url": "https://elpais.com/america-colombia/2022-08-12/como-encontrara-petro-un-balance-entre-eficacia-y-consenso.html",
-      "image": "assets/log/ec67df15e766.jpg"
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-08-09",
-      "title": "El impacto potencial de la reforma tributaria de Petro en cuatro gráficos clave",
-      "excerpt": "Progresiva por el aumento de la renta y del patrimonio, pero con riesgo de afectar más a las rentas bajas en el consumo, la nueva propuesta de cambio fiscal podría tener un impacto mixto",
-      "url": "https://elpais.com/america-colombia/2022-08-09/el-impacto-potencial-de-la-reforma-tributaria-de-petro-en-cuatro-graficos-clave.html",
-      "image": "assets/log/6438e118942d.jpg"
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-08-08",
-      "title": "Los dilemas insalvables de Petro",
-      "excerpt": "El nuevo presidente mantiene un discurso de máximos, pero probablemente tendrá que elegir entre atacar todos los problemas que aquejan a Colombia o mantener una coalición amplia e ideológicamente diversa",
-      "url": "https://elpais.com/america-colombia/2022-08-08/los-dilemas-insalvables-para-el-nuevo-gobierno-de-gustavo-petro.html",
-      "image": "assets/log/c3cd47efd631.jpg"
     }
   ]
 }
