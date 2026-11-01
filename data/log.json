@@ -1,12 +1,32 @@
 {
-  "syncedAt": "2026-10-01",
+  "syncedAt": "2026-11-01",
   "items": [
+    {
+      "kind": "columna",
+      "kindLabel": "El País",
+      "source": "El País",
+      "date": "2026-10-11",
+      "title": "Construir vivienda como política de alquiler",
+      "excerpt": "",
+      "url": "https://elpais.com/economia/2026-10-11/construir-vivienda-como-politica-de-alquiler.html",
+      "image": "assets/log/129078807c95.jpg"
+    },
+    {
+      "kind": "ecpol",
+      "kindLabel": "EsadeEcPol",
+      "source": "EsadeEcPol",
+      "date": "2026-10-06",
+      "title": "¿Qué ha pasado con la oferta de alquiler durante el debate de los decretos ley de vivienda?",
+      "excerpt": "Ideas clave → Entre el 29 de septiembre y el 5 de octubre, los anuncios de alquiler de larga duración cayeron en las diez mayores ciudades: un 6% o más en Murcia, Madrid, Valencia, Alicante, Las Palmas y Palma. La mayor ",
+      "url": "https://www.esade.edu/ecpol/es/blog/oferta-alquiler-decretos-ley-vivienda/",
+      "image": "assets/log/4527a1e04333.png"
+    },
     {
       "kind": "ecpol",
       "kindLabel": "EsadeEcPol",
       "source": "EsadeEcPol",
       "date": "2026-10-01",
-      "title": "Valoración de los decretos de vivienda, medida por medida",
+      "title": "Valoración de los Reales Decretos - Ley de vivienda, medida por medida",
       "excerpt": "El Gobierno ha aprobado dos Reales Decretos-ley (RDL) con una batería de reformas amplia y diversa sobre vivienda: el Real Decreto-ley 26/2026, de protección de la función social de la vivienda y ampliación de la oferta ",
       "url": "https://www.esade.edu/ecpol/es/blog/valoracion-decretos-vivienda-medida-por-medida/",
       "image": "assets/log/af152dc29b43.png"
@@ -580,26 +600,6 @@
       "excerpt": "Los últimos sondeos hasta el pasado 19 de agosto aún dejaban a 1 de cada 7 votantes en la indecisión, un volumen mayor al 10% de ventaja que mantiene el “no” en un patrón de voto marcado por la polarización ideológica",
       "url": "https://elpais.com/chile/2022-08-27/las-encuestas-en-chile-dan-ventaja-al-rechazo-a-la-nueva-constitucion-con-un-gran-contingente-de-indecisos.html",
       "image": "assets/log/a4fef7bf36ef.png"
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-08-19",
-      "title": "Los extraordinarios salarios de los congresistas colombianos",
-      "excerpt": "Teniendo en cuenta el nivel de vida de cada país, Colombia tiene a los congresistas mejor pagados de las democracias de América Latina, y también a los que más ganan respecto al resto de la población",
-      "url": "https://elpais.com/america-colombia/2022-08-19/los-extraordinarios-salarios-de-los-congresistas-colombianos.html",
-      "image": "assets/log/3b6f47273a40.png"
-    },
-    {
-      "kind": "columna",
-      "kindLabel": "El País",
-      "source": "El País",
-      "date": "2022-08-14",
-      "title": "El muy difícil camino de Colombia para dejar atrás el gas",
-      "excerpt": "Las cifras de consumo y producción, así como las condiciones de partida, indican que el proceso para dejar de lado el gas podría ser mucho más largo y difícil de lo que sugiere el decidido anuncio del Gobierno Petro de n",
-      "url": "https://elpais.com/america-colombia/2022-08-14/el-muy-dificil-camino-de-colombia-para-dejar-atras-el-gas.html",
-      "image": "assets/log/9c9522f0bc9d.jpg"
     }
   ]
 }
