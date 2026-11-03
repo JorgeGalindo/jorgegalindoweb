@@ -8,12 +8,15 @@
  *   3. Letras Libres — RSS por autor (https://letraslibres.com/autor/jorge-galindo/feed/)
  *   4. Jot Down      — scraping de la página de autor (RSS por autor inestable)
  *   5. Substack      — RSS estándar (https://jorgegalindo.substack.com/feed)
+ *   6. YouTube       — feed Atom del canal (https://www.youtube.com/feeds/videos.xml?channel_id=...)
  *
  * Salidas:
- *   - data/log.json         { syncedAt, items: [...] }   (todo menos newsletter)
+ *   - data/log.json         { syncedAt, items: [...] }   (todo menos newsletter y vídeo)
  *   - data/newsletter.json  { syncedAt, items: [...] }   (substack)
+ *   - data/videos.json      { syncedAt, items: [...] }   (youtube)
  *   - assets/log/<hash>.<ext>          imágenes cacheadas
  *   - assets/newsletter/<hash>.<ext>   imágenes cacheadas
+ *   - assets/video/<hash>.<ext>        miniaturas cacheadas
  *
  * Uso:
  *   node feeds/build.mjs              # corre todo
@@ -32,7 +35,7 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { retainPosts } from "./retain.mjs";
-import { validPost } from "./content.mjs";
+import { validPost, validVideo } from "./content.mjs";
 import { renderFeeds } from "./render.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -47,6 +50,11 @@ const ONLY_SOURCE = [...ARGS].find(arg => arg.startsWith('--source='))?.split('=
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36";
 
 /* ─────────────────────────  config de fuentes  ───────────────────────── */
+
+// Canal de Jorge Galindo (youtube.com/@jorgegalindoa). El id UC… es estable;
+// el handle @… puede cambiar, así que el feed se pide siempre por channel_id.
+const YOUTUBE_CHANNEL_ID = "UCi57aaNOJItv1uEfRowDVbQ";
+const YOUTUBE_HANDLE = "jorgegalindoa";
 
 const SOURCES = [
   // El País publica RSS oficial por autor — descubierto inspeccionando la página.
@@ -85,6 +93,18 @@ const SOURCES = [
     type: "rss",
     url: "https://jorgegalindo.substack.com/feed",
     bucket: "newsletter",
+  },
+  // YouTube publica un feed Atom por canal, sin API key ni cuota. Devuelve los
+  // 15 últimos vídeos; el sitio muestra los 2 más recientes.
+  {
+    id: "youtube",
+    kind: "video",
+    kindLabel: "YouTube",
+    source: "YouTube",
+    type: "youtube-atom",
+    channelId: YOUTUBE_CHANNEL_ID,
+    url: `https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`,
+    bucket: "video",
   },
 ];
 
@@ -179,6 +199,47 @@ const parseRssItems = (xml) => {
   return items;
 };
 
+/* ─────────────────────────  YouTube (Atom)  ─────────────────────────
+   El feed del canal es Atom: <entry> en lugar de <item>, con los campos de
+   YouTube en el namespace yt:/media:. Guardamos el videoId porque el frontend
+   construye con él la miniatura y el embed. */
+
+const parseAtomVideos = (xml) => {
+  const videos = [];
+  for (const block of xml.match(/<entry\b[\s\S]*?<\/entry>/gi) || []) {
+    const videoId = stripTags(matchTag(block, "yt:videoId"));
+    const title = stripTags(matchTag(block, "title"));
+    const published = stripTags(matchTag(block, "published"));
+    const parsed = new Date(published);
+    const date = Number.isNaN(parsed.getTime()) ? "" : parsed.toISOString().slice(0, 10);
+    // La descripción de YouTube suele traer capítulos y enlaces detrás de una
+    // línea en blanco: nos quedamos solo con el párrafo de entrada.
+    const description = decodeEntities(stripCdata(matchTag(block, "media:description")));
+    const lead = description.split(/\n\s*\n/)[0].replace(/\s+/g, " ").trim();
+    // Cortar por palabra: una descripción partida a mitad de palabra se lee mal.
+    const excerpt = lead.length > 200
+      ? lead.slice(0, 200).replace(/[\s,;:.…]+\S*$/, "") + "…"
+      : lead;
+    const feedThumb = decodeEntities(matchAttr(block, "media:thumbnail", "url"));
+    if (!videoId || !title) continue;
+    videos.push({
+      videoId,
+      title,
+      url: `https://www.youtube.com/watch?v=${videoId}`,
+      date,
+      excerpt,
+      // maxres (1280×720) es la única sin bandas negras; si el vídeo no la tiene,
+      // YouTube responde 404 y se cae a la siguiente.
+      images: [
+        `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+        `https://i.ytimg.com/vi/${videoId}/sddefault.jpg`,
+        feedThumb,
+      ].filter(Boolean),
+    });
+  }
+  return videos;
+};
+
 /* ─────────────────────────  image cache  ───────────────────────── */
 
 const ensureDir = async (p) => {
@@ -205,6 +266,15 @@ const cacheImage = async (url, bucket) => {
     console.warn(`  ⚠ image ${url}: ${e.message}`);
     return "";
   }
+};
+
+// Varias candidatas para la misma imagen: se usa la primera que exista.
+const cacheFirstImage = async (urls, bucket) => {
+  for (const url of urls) {
+    const rel = await cacheImage(url, bucket);
+    if (rel) return rel;
+  }
+  return "";
 };
 
 /* ─────────────────────────  per-source runners  ───────────────────────── */
@@ -293,6 +363,10 @@ const runSource = async (src) => {
       if (!raw.length) throw new Error('RSS vacío o respuesta sin artículos; se conservará la copia anterior');
     } else if (src.type === "ecpol-combined") {
       raw = await runEcpolCombined(src);
+    } else if (src.type === "youtube-atom") {
+      const xml = await fetchText(src.url);
+      raw = parseAtomVideos(xml);
+      if (!raw.length) throw new Error('Feed de YouTube vacío; se conservará la copia anterior');
     }
   } catch (e) {
     console.warn(`  ✗ ${src.id} failed: ${e.message}`);
@@ -302,7 +376,7 @@ const runSource = async (src) => {
   const bucket = src.bucket || "log";
   const items = [];
   for (const it of raw) {
-    const cached = await cacheImage(it.image, bucket);
+    const cached = it.images ? await cacheFirstImage(it.images, bucket) : await cacheImage(it.image, bucket);
     items.push({
       kind: src.kind,
       kindLabel: src.kindLabel,
@@ -312,6 +386,7 @@ const runSource = async (src) => {
       excerpt: it.excerpt || "",
       url: it.url,
       image: cached,
+      ...(it.videoId ? { videoId: it.videoId } : {}),
     });
   }
   console.log(`  ✓ ${items.length} items`);
@@ -399,8 +474,8 @@ const main = async () => {
     try { return JSON.parse(await readFile(path.join(ROOT, 'data', `${name}.json`), 'utf8')); }
     catch (error) { if (error.code === 'ENOENT') return {}; throw error; }
   };
-  const [previousLog, previousNewsletter, previousTags] = await Promise.all([
-    readPrevious('log'), readPrevious('newsletter'), readPrevious('newsletter-tags'),
+  const [previousLog, previousNewsletter, previousTags, previousVideos] = await Promise.all([
+    readPrevious('log'), readPrevious('newsletter'), readPrevious('newsletter-tags'), readPrevious('videos'),
   ]);
   if (ONLY_SOURCE && !SOURCES.some(source => source.id === ONLY_SOURCE)) throw new Error(`Fuente desconocida: ${ONLY_SOURCE}`);
 
@@ -414,12 +489,16 @@ const main = async () => {
   const tagMap = !ONLY_SOURCE || ONLY_SOURCE === 'substack' ? await buildSubstackTagMap() : {};
 
   const freshNewsletter = all.filter(x => x.kind === 'newsletter' && validPost(x));
-  const freshLog = all.filter(x => x.kind !== 'newsletter' && validPost(x));
+  const freshVideos = all.filter(x => x.kind === 'video' && validVideo(x));
+  const freshLog = all.filter(x => !['newsletter', 'video'].includes(x.kind) && validPost(x));
   const newsletter = retainPosts(previousNewsletter.items, freshNewsletter, 30);
   const log = retainPosts(previousLog.items, freshLog, 60);
+  const videos = retainPosts(previousVideos.items, freshVideos, 15).filter(validVideo);
 
   const logOut = { syncedAt: freshLog.length ? today : previousLog.syncedAt || null, items: log };
   const newsletterOut = { syncedAt: freshNewsletter.length ? today : previousNewsletter.syncedAt || null, items: newsletter };
+  const videosOut = { syncedAt: freshVideos.length ? today : previousVideos.syncedAt || null, channel: `https://www.youtube.com/@${YOUTUBE_HANDLE}`, items: videos };
+  if (!freshVideos.length && videos.length) console.warn(`  ↳ youtube: conservados ${videos.length} vídeos anteriores`);
   const freshTags = Object.values(tagMap).some(items => items.some(validPost));
   const tagOut = { syncedAt: freshTags ? today : previousTags.syncedAt || null };
   for (const tag of SUBSTACK_TAGS) {
@@ -430,6 +509,7 @@ const main = async () => {
   if (DRY) {
     console.log("\n[dry] log:", log.length, "items");
     console.log("[dry] newsletter:", newsletter.length, "items");
+    console.log("[dry] videos:", videos.length, "items");
     console.log("[dry] tags:", Object.fromEntries(SUBSTACK_TAGS.map(tag => [tag, tagOut[tag].length])));
     return;
   }
@@ -438,10 +518,12 @@ const main = async () => {
   await writeFile(path.join(ROOT, "data/log.json"), JSON.stringify(logOut, null, 2));
   await writeFile(path.join(ROOT, "data/newsletter.json"), JSON.stringify(newsletterOut, null, 2));
   await writeFile(path.join(ROOT, "data/newsletter-tags.json"), JSON.stringify(tagOut, null, 2));
+  await writeFile(path.join(ROOT, "data/videos.json"), JSON.stringify(videosOut, null, 2));
   await renderFeeds(ROOT);
   console.log(`\n✓ data/log.json (${log.length})`);
   console.log(`✓ data/newsletter.json (${newsletter.length})`);
   console.log(`✓ data/newsletter-tags.json (${SUBSTACK_TAGS.length} tags)`);
+  console.log(`✓ data/videos.json (${videos.length})`);
 };
 
 main().catch((e) => {

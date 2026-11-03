@@ -1,14 +1,16 @@
 import {readFile, writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
-import {logMarkup, tagMarkup, eventsMarkup, mediaMarkup} from './content.mjs';
+import {logMarkup, tagMarkup, eventsMarkup, mediaMarkup, videosMarkup} from './content.mjs';
 
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 
 export async function renderFeeds(root = ROOT) {
   const read = name => readFile(path.join(root, 'data', name + '.json'), 'utf8').then(JSON.parse);
-  const [source, log, tags, events] = await Promise.all([
-    readFile(path.join(root, 'index.html'), 'utf8'), read('log'), read('newsletter-tags'), read('events'),
+  // videos.json lo genera el builder: si aún no existe, la sección mantiene el HTML publicado.
+  const readOptional = name => read(name).catch(() => ({}));
+  const [source, log, tags, events, videos] = await Promise.all([
+    readFile(path.join(root, 'index.html'), 'utf8'), read('log'), read('newsletter-tags'), read('events'), readOptional('videos'),
   ]);
   let html = source;
   const replaceList = (attribute, markup) => {
@@ -21,6 +23,7 @@ export async function renderFeeds(root = ROOT) {
   for (const tag of ['desbloquear-oportunidades', 'trabajo-con-maquinas', 'europa-sola']) {
     replaceList(`data-obsesion-posts="${tag}"`, tagMarkup(tags[tag]));
   }
+  replaceList('data-videos', videosMarkup(videos.items));
   replaceList('data-events', eventsMarkup(events.events || events.items));
   replaceList('data-media', mediaMarkup(events.media));
   if (html !== source) await writeFile(path.join(root, 'index.html'), html);

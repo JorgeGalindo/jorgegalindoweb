@@ -15,6 +15,7 @@ Página personal de Jorge Galindo. HTML / CSS / JS plano + cron mensual que sinc
 │   ├── log.json              ← generado por feeds/build.mjs (ecpol + el país)
 │   ├── newsletter.json       ← generado por feeds/build.mjs (substack)
 │   ├── newsletter-tags.json  ← generado por feeds/build.mjs (tags + posts)
+│   ├── videos.json           ← generado por feeds/build.mjs (youtube)
 │   ├── events.json           ← manual (eventos + medios destacados)
 │   └── i18n.json             ← traducciones es / en / ca
 ├── assets/
@@ -26,7 +27,8 @@ Página personal de Jorge Galindo. HTML / CSS / JS plano + cron mensual que sinc
 │   ├── un-pais-posible.png
 │   ├── paper-iberian-exception.png     ← portada del paper destacado
 │   ├── log/<hash>.<ext>                ← caché de imágenes de los posts
-│   └── newsletter/<hash>.<ext>         ← caché de imágenes Substack
+│   ├── newsletter/<hash>.<ext>         ← caché de imágenes Substack
+│   └── video/<hash>.<ext>              ← caché de miniaturas de YouTube
 ├── feeds/
 │   └── build.mjs                        ← normalizador de feeds
 └── .github/workflows/feeds.yml          ← cron mensual
@@ -59,12 +61,23 @@ Fuentes activas:
 - **El País** — RSS oficial por autor.
 - **EsadeEcPol** — scraping de la página de autor + filtrado por mención de "Jorge Galindo" en el cuerpo del post.
 - **Substack (Rango abierto)** — RSS estándar + scraping de los tags `desbloquear-oportunidades`, `trabajo-con-maquinas` y `europa-sola`.
+- **YouTube** — feed Atom del canal (`youtube.com/@jorgegalindoa`, id `UCi57aaNOJItv1uEfRowDVbQ`). Sin API key ni cuota. El id del canal está en `YOUTUBE_CHANNEL_ID` dentro de `feeds/build.mjs`: el handle `@…` puede cambiar, el id no.
 
 Si una fuente cambia URL o markup, ajustar `SOURCES` en `feeds/build.mjs`.
 
 ## Cadencia
 
 `.github/workflows/feeds.yml` corre **mensual** (día 1 a las 06:00 UTC). Para activar **bisemanal**, descomenta el segundo `cron`. También puede dispararse a mano desde la pestaña Actions.
+
+## Sección de vídeo
+
+La sección `#video` va justo debajo de la cabecera, antes del libro, y muestra los **dos vídeos más recientes** del canal (`visibleVideos` en `feeds/content.mjs`, límite 2).
+
+- En móvil es un carrusel: un vídeo a la vista, con scroll-snap horizontal, flechas y puntos. El desplazamiento con el dedo funciona aunque falle el JavaScript; las flechas y los puntos los activa `app.js`.
+- Desde 900 px de ancho caben los dos a la vez y el carrusel se convierte en una pareja de tarjetas (los controles se ocultan por CSS).
+- La miniatura es un **enlace real a YouTube**. `app.js` intercepta el clic y lo sustituye por el embed de `youtube-nocookie.com`, así que ninguna visita carga el reproductor de YouTube si no se pide. Sin JavaScript, el enlace lleva al vídeo.
+- Las miniaturas se cachean en el repo: se prueba `maxresdefault` (1280×720, sin bandas negras) y se cae a `sddefault` o a la del feed.
+- Para publicar un vídeo nuevo basta con `npm run feeds:build` (o esperar al cron): el builder reescribe `data/videos.json` y los listados del HTML.
 
 ## Idiomas
 

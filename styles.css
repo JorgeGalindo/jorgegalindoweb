@@ -564,6 +564,20 @@ strong { font-weight: 600; }
   opacity: .55;
 }
 
+/* D — vídeo: verde agua arriba-izquierda, lavanda muy tenue abajo-derecha */
+.section--gradient-d::before {
+  top: -12%; left: -10%;
+  width: 55%; height: 70%;
+  background: radial-gradient(circle at center, var(--green-pastel) 0%, transparent 65%);
+  opacity: .50;
+}
+.section--gradient-d::after {
+  bottom: -18%; right: -12%;
+  width: 55%; height: 70%;
+  background: radial-gradient(circle at center, var(--lav-pastel) 0%, transparent 68%);
+  opacity: .30;
+}
+
 /* ─────────────────────────  shared titles  ───────────────────────── */
 
 .log__title,
@@ -1365,4 +1379,212 @@ html[lang="en"] .basics-link { display: block; }
 }
 .hero__sig-note a:hover .hero__sig-note-arrow {
   transform: translateX(3px);
+}
+
+/* ─────────────────────────  vídeo · carrusel  ─────────────────────────
+   Un slide a la vista, desplazamiento con scroll-snap (funciona con dedo y
+   trackpad sin JavaScript) y controles que el script activa al cargar.
+   La miniatura es un enlace real a YouTube: el embed solo se monta al pulsar. */
+
+.video {
+  padding: clamp(2rem, 5vw, 3.25rem) 0 clamp(2.25rem, 5vw, 3.5rem);
+}
+.video__inner { max-width: var(--max-wide); }
+
+.video__intro {
+  max-width: var(--max);
+  margin-bottom: clamp(1.25rem, 3vw, 1.9rem);
+}
+.video__lead {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  color: var(--ink-mute);
+  letter-spacing: .02em;
+  margin: 0 0 .6rem;
+}
+.video__copy {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.video__carousel { position: relative; }
+
+.video__track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: clamp(1rem, 3vw, 1.75rem);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.video__track::-webkit-scrollbar { display: none; }
+.video__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.video__frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--night);
+  border: 1px solid var(--rule);
+  text-decoration: none;
+}
+.video__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-med) var(--ease), opacity var(--t-med) var(--ease);
+}
+.video__frame:hover img { transform: scale(1.015); opacity: .92; }
+
+.video__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.video__play::before {
+  content: "";
+  position: absolute;
+  width: clamp(54px, 7vw, 72px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(245, 243, 235, 0.92);
+  box-shadow: 0 2px 18px rgba(17, 26, 22, 0.28);
+  transition: background var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+}
+.video__play::after {
+  content: "";
+  position: relative;
+  width: 0; height: 0;
+  margin-left: .22em;
+  border-left: clamp(16px, 2.2vw, 21px) solid var(--green-deep);
+  border-top: clamp(10px, 1.4vw, 13px) solid transparent;
+  border-bottom: clamp(10px, 1.4vw, 13px) solid transparent;
+  transition: border-left-color var(--t-fast) var(--ease);
+}
+.video__frame:hover .video__play::before { background: var(--paper-soft); transform: scale(1.06); }
+.video__frame:hover .video__play::after { border-left-color: var(--green); }
+
+/* Embed: sustituye a la miniatura cuando se pulsa. */
+.video__frame--embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid var(--rule);
+  background: var(--night);
+}
+.video__frame--embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.video__meta { padding: .9rem .1rem 0; }
+.video__when {
+  margin: 0 0 .35rem;
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: .04em;
+  color: var(--green);
+}
+.video__title {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.3;
+  letter-spacing: .01em;
+}
+.video__title a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+.video__title a:hover { color: var(--green-deep); border-bottom-color: var(--green); }
+.video__excerpt {
+  margin: .5rem 0 0;
+  color: var(--ink-soft);
+  font-size: .95rem;
+  line-height: 1.55;
+  max-width: 62ch;
+  /* Tres líneas: mantiene parejas las dos tarjetas en escritorio. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+.video__controls {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  margin-top: clamp(1rem, 2.5vw, 1.4rem);
+}
+.video__controls[hidden] { display: none; }
+.video__nav {
+  min-width: 44px; min-height: 44px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--mono);
+  font-size: 1rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), opacity var(--t-fast) var(--ease);
+}
+.video__nav:hover:not(:disabled) { color: var(--green); border-color: var(--green); }
+.video__nav:disabled { opacity: .35; cursor: default; }
+
+.video__dots { display: flex; align-items: center; gap: .5rem; }
+.video__dot {
+  width: 9px; height: 9px;
+  padding: 0;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+}
+.video__dot[aria-current="true"] { background: var(--green); border-color: var(--green); }
+/* El punto es pequeño a propósito: el área pulsable sigue siendo de 44px. */
+.video__dot::before {
+  content: "";
+  position: absolute;
+  inset: -17px;
+}
+.video__dot { position: relative; }
+
+.video__cta { margin: clamp(1.25rem, 3vw, 1.75rem) 0 0; }
+
+@media (min-width: 900px) {
+  /* En pantallas anchas caben los dos vídeos a la vez: el carrusel deja de
+     desplazarse y se convierte en una pareja de tarjetas. */
+  .video__track { overflow-x: visible; scroll-snap-type: none; }
+  .video__slide { flex: 1 1 0; }
+  .video__controls { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video__track { scroll-behavior: auto; }
 }
