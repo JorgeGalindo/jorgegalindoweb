@@ -71,7 +71,7 @@ Si una fuente cambia URL o markup, ajustar `SOURCES` en `feeds/build.mjs`.
 
 ## Sección de vídeo
 
-La sección `#video` va justo debajo de la cabecera, antes del libro, y muestra los **dos vídeos más recientes** del canal (`visibleVideos` en `feeds/content.mjs`, límite 2).
+La sección `#video` va justo debajo de la cabecera, antes del libro, y muestra los **dos vídeos más recientes** del canal (`visibleVideos` en `feeds/content.mjs`, límite 2). **Solo los vídeos**: sin titular, sin pie y sin enlace al canal. El título de cada vídeo vive en el `alt` de la miniatura y en el `aria-label` del enlace, que es lo que leen buscadores y lectores de pantalla.
 
 - En móvil es un carrusel: un vídeo a la vista, con scroll-snap horizontal, flechas y puntos. El desplazamiento con el dedo funciona aunque falle el JavaScript; las flechas y los puntos los activa `app.js`.
 - Desde 900 px de ancho caben los dos a la vez y el carrusel se convierte en una pareja de tarjetas (los controles se ocultan por CSS).

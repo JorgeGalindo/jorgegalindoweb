@@ -1382,33 +1382,16 @@ html[lang="en"] .basics-link { display: block; }
 }
 
 /* ─────────────────────────  vídeo · carrusel  ─────────────────────────
-   Un slide a la vista, desplazamiento con scroll-snap (funciona con dedo y
-   trackpad sin JavaScript) y controles que el script activa al cargar.
-   La miniatura es un enlace real a YouTube: el embed solo se monta al pulsar. */
+   Solo los vídeos: ni titular ni pie. Un slide a la vista, desplazamiento con
+   scroll-snap (funciona con dedo y trackpad sin JavaScript) y controles que el
+   script activa al cargar. La miniatura es un enlace real a YouTube: el embed
+   solo se monta al pulsar. El título del vídeo vive en el alt y en el nombre
+   accesible del enlace. */
 
 .video {
   padding: clamp(2rem, 5vw, 3.25rem) 0 clamp(2.25rem, 5vw, 3.5rem);
 }
 .video__inner { max-width: var(--max-wide); }
-
-.video__intro {
-  max-width: var(--max);
-  margin-bottom: clamp(1.25rem, 3vw, 1.9rem);
-}
-.video__lead {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-  color: var(--ink-mute);
-  letter-spacing: .02em;
-  margin: 0 0 .6rem;
-}
-.video__copy {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 1.02rem;
-  line-height: 1.6;
-}
 
 .video__carousel { position: relative; }
 
@@ -1497,43 +1480,6 @@ html[lang="en"] .basics-link { display: block; }
   display: block;
 }
 
-.video__meta { padding: .9rem .1rem 0; }
-.video__when {
-  margin: 0 0 .35rem;
-  font-family: var(--mono);
-  font-size: .74rem;
-  letter-spacing: .04em;
-  color: var(--green);
-}
-.video__title {
-  margin: 0;
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
-  line-height: 1.3;
-  letter-spacing: .01em;
-}
-.video__title a {
-  color: var(--ink);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
-}
-.video__title a:hover { color: var(--green-deep); border-bottom-color: var(--green); }
-.video__excerpt {
-  margin: .5rem 0 0;
-  color: var(--ink-soft);
-  font-size: .95rem;
-  line-height: 1.55;
-  max-width: 62ch;
-  /* Tres líneas: mantiene parejas las dos tarjetas en escritorio. */
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  overflow: hidden;
-}
-
 .video__controls {
   display: flex;
   align-items: center;
@@ -1575,11 +1521,9 @@ html[lang="en"] .basics-link { display: block; }
 }
 .video__dot { position: relative; }
 
-.video__cta { margin: clamp(1.25rem, 3vw, 1.75rem) 0 0; }
-
 @media (min-width: 900px) {
   /* En pantallas anchas caben los dos vídeos a la vez: el carrusel deja de
-     desplazarse y se convierte en una pareja de tarjetas. */
+     desplazarse y se ponen en paralelo. */
   .video__track { overflow-x: visible; scroll-snap-type: none; }
   .video__slide { flex: 1 1 0; }
   .video__controls { display: none; }

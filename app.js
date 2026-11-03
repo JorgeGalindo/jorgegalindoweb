@@ -39,7 +39,7 @@ window.addEventListener('scroll', () => {
 measureNavigation();
 
 /* Las traducciones y los feeds se descargan a la vez. El HTML ya es legible. */
-const translations = getJSON('data/i18n.json?v=20261103').catch(() => null);
+const translations = getJSON('data/i18n.json?v=20261103b').catch(() => null);
 const feeds = Promise.allSettled(['log', 'events', 'newsletter-tags', 'videos'].map(name => getJSON(`data/${name}.json`)));
 const languages = ['es', 'en', 'ca'];
 const requested = new URLSearchParams(location.search).get('lang');
@@ -159,7 +159,7 @@ const videoCarousel = (() => {
       const dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'video__dot';
-      dot.setAttribute('aria-label', slide.querySelector('.video__title')?.textContent?.trim() || String(position + 1));
+      dot.setAttribute('aria-label', slide.querySelector('[data-video-title]')?.dataset.videoTitle?.trim() || String(position + 1));
       dot.addEventListener('click', () => go(position));
       dots.append(dot);
     });

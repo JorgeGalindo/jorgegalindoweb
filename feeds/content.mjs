@@ -53,16 +53,12 @@ export const visibleVideos = (items, limit = 2) => (Array.isArray(items) ? items
 
 export const videosMarkup = (items, limit = 2) => visibleVideos(items, limit).map((item, index) => {
   const thumb = item.image || `https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg`;
+  // Sin texto alrededor: el título va en el alt y en el nombre accesible del enlace.
   return `
         <li class="video__slide" data-video-slide="${index}">
-          <a class="video__frame" href="${escapeHtml(item.url)}" rel="noopener" data-video-id="${escapeHtml(item.videoId)}" data-video-title="${escapeHtml(item.title)}">
-            <img class="video__thumb" src="${escapeHtml(thumb)}" alt="" loading="${index ? 'lazy' : 'eager'}" width="1280" height="720" />
+          <a class="video__frame" href="${escapeHtml(item.url)}" rel="noopener" aria-label="${escapeHtml(item.title)}" data-video-id="${escapeHtml(item.videoId)}" data-video-title="${escapeHtml(item.title)}">
+            <img class="video__thumb" src="${escapeHtml(thumb)}" alt="${escapeHtml(item.title)}" loading="${index ? 'lazy' : 'eager'}" width="1280" height="720" />
             <span class="video__play" aria-hidden="true"></span>
           </a>
-          <div class="video__meta">
-            <p class="video__when">${date(item.date)}</p>
-            <h3 class="video__title"><a href="${escapeHtml(item.url)}" rel="noopener">${escapeHtml(item.title)}</a></h3>
-            ${item.excerpt ? `<p class="video__excerpt">${escapeHtml(item.excerpt)}</p>` : ''}
-          </div>
         </li>`;
 }).join('');
