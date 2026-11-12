@@ -22,8 +22,9 @@
  *   node feeds/build.mjs              # corre todo
  *   node feeds/build.mjs --dry        # no escribe ficheros, log a stdout
  *   node feeds/build.mjs --no-images  # no descarga imágenes
+ *   node feeds/build.mjs --source=youtube  # solo una fuente (solo reescribe sus ficheros)
  *
- * Cadencia: pensado para correr mensual via GitHub Action.
+ * Cadencia (GitHub Actions): todo, una vez al mes (feeds.yml); YouTube, cada hora (videos.yml).
  * Lo robusto: aunque alguna fuente falle, las demás se generan igual.
  */
 
@@ -34,7 +35,7 @@ import { Readable } from "node:stream";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { retainPosts } from "./retain.mjs";
+import { retainPosts, latestVideos } from "./retain.mjs";
 import { validPost, validVideo } from "./content.mjs";
 import { renderFeeds } from "./render.mjs";
 
@@ -95,7 +96,7 @@ const SOURCES = [
     bucket: "newsletter",
   },
   // YouTube publica un feed Atom por canal, sin API key ni cuota. Devuelve los
-  // 15 últimos vídeos; el sitio muestra los 2 más recientes.
+  // 15 últimos vídeos (Shorts incluidos, que se descartan); el sitio muestra los 3 más recientes.
   {
     id: "youtube",
     kind: "video",
@@ -204,9 +205,12 @@ const parseRssItems = (xml) => {
    YouTube en el namespace yt:/media:. Guardamos el videoId porque el frontend
    construye con él la miniatura y el embed. */
 
-const parseAtomVideos = (xml) => {
+export const parseAtomVideos = (xml) => {
   const videos = [];
   for (const block of xml.match(/<entry\b[\s\S]*?<\/entry>/gi) || []) {
+    // Los Shorts llegan en el mismo feed con enlace /shorts/: son verticales y no caben
+    // en el marco 16:9 de la portada.
+    if (/\/shorts\//i.test(matchAttr(block, "link", "href"))) continue;
     const videoId = stripTags(matchTag(block, "yt:videoId"));
     const title = stripTags(matchTag(block, "title"));
     const published = stripTags(matchTag(block, "published"));
@@ -478,32 +482,36 @@ const main = async () => {
     readPrevious('log'), readPrevious('newsletter'), readPrevious('newsletter-tags'), readPrevious('videos'),
   ]);
   if (ONLY_SOURCE && !SOURCES.some(source => source.id === ONLY_SOURCE)) throw new Error(`Fuente desconocida: ${ONLY_SOURCE}`);
+  const ran = id => !ONLY_SOURCE || ONLY_SOURCE === id;
 
   const all = [];
-  for (const src of SOURCES.filter(source => !ONLY_SOURCE || source.id === ONLY_SOURCE)) {
+  for (const src of SOURCES.filter(source => ran(source.id))) {
     const items = await runSource(src);
     all.push(...items);
   }
 
-  console.log(`→ substack tags`);
-  const tagMap = !ONLY_SOURCE || ONLY_SOURCE === 'substack' ? await buildSubstackTagMap() : {};
+  let tagMap = {};
+  if (ran('substack')) {
+    console.log(`→ substack tags`);
+    tagMap = await buildSubstackTagMap();
+  }
 
   const freshNewsletter = all.filter(x => x.kind === 'newsletter' && validPost(x));
   const freshVideos = all.filter(x => x.kind === 'video' && validVideo(x));
   const freshLog = all.filter(x => !['newsletter', 'video'].includes(x.kind) && validPost(x));
   const newsletter = retainPosts(previousNewsletter.items, freshNewsletter, 30);
   const log = retainPosts(previousLog.items, freshLog, 60);
-  const videos = retainPosts(previousVideos.items, freshVideos, 15).filter(validVideo);
+  const videos = latestVideos(previousVideos.items, freshVideos, 15);
 
   const logOut = { syncedAt: freshLog.length ? today : previousLog.syncedAt || null, items: log };
   const newsletterOut = { syncedAt: freshNewsletter.length ? today : previousNewsletter.syncedAt || null, items: newsletter };
   const videosOut = { syncedAt: freshVideos.length ? today : previousVideos.syncedAt || null, channel: `https://www.youtube.com/@${YOUTUBE_HANDLE}`, items: videos };
-  if (!freshVideos.length && videos.length) console.warn(`  ↳ youtube: conservados ${videos.length} vídeos anteriores`);
+  if (ran('youtube') && !freshVideos.length && videos.length) console.warn(`  ↳ youtube: conservados ${videos.length} vídeos anteriores`);
   const freshTags = Object.values(tagMap).some(items => items.some(validPost));
   const tagOut = { syncedAt: freshTags ? today : previousTags.syncedAt || null };
   for (const tag of SUBSTACK_TAGS) {
     tagOut[tag] = retainPosts(previousTags[tag], tagMap[tag], 3);
-    if (!tagMap[tag]?.length && previousTags[tag]?.length) console.warn(`  ↳ ${tag}: conservados ${tagOut[tag].length} artículos anteriores`);
+    if (ran('substack') && !tagMap[tag]?.length && previousTags[tag]?.length) console.warn(`  ↳ ${tag}: conservados ${tagOut[tag].length} artículos anteriores`);
   }
 
   if (DRY) {
@@ -515,18 +523,24 @@ const main = async () => {
   }
 
   await ensureDir(path.join(ROOT, "data"));
-  await writeFile(path.join(ROOT, "data/log.json"), JSON.stringify(logOut, null, 2));
-  await writeFile(path.join(ROOT, "data/newsletter.json"), JSON.stringify(newsletterOut, null, 2));
-  await writeFile(path.join(ROOT, "data/newsletter-tags.json"), JSON.stringify(tagOut, null, 2));
-  await writeFile(path.join(ROOT, "data/videos.json"), JSON.stringify(videosOut, null, 2));
+  const write = async (name, data, count) => {
+    await writeFile(path.join(ROOT, `data/${name}.json`), JSON.stringify(data, null, 2));
+    console.log(`✓ data/${name}.json (${count})`);
+  };
+  // Con --source=… solo se reescriben los ficheros de esa fuente.
+  if (ran('elpais') || ran('ecpol')) await write('log', logOut, log.length);
+  if (ran('substack')) {
+    await write('newsletter', newsletterOut, newsletter.length);
+    await write('newsletter-tags', tagOut, `${SUBSTACK_TAGS.length} tags`);
+  }
+  if (ran('youtube')) await write('videos', videosOut, videos.length);
   await renderFeeds(ROOT);
-  console.log(`\n✓ data/log.json (${log.length})`);
-  console.log(`✓ data/newsletter.json (${newsletter.length})`);
-  console.log(`✓ data/newsletter-tags.json (${SUBSTACK_TAGS.length} tags)`);
-  console.log(`✓ data/videos.json (${videos.length})`);
 };
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+// Solo al ejecutarlo directamente: los tests importan el parser sin lanzar la sincronización.
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

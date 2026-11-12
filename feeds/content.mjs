@@ -39,7 +39,7 @@ export const mediaMarkup = items => (Array.isArray(items) ? items : []).filter(v
       </li>`).join('');
 
 /* ─────────────────────────  vídeo (youtube)  ─────────────────────────
-   El carrusel de la portada. Cada slide es un enlace real a YouTube: sin
+   El carrusel de la portada, con los tres últimos vídeos del canal. Cada slide es un enlace real a YouTube: sin
    JavaScript funciona como tal, y con JavaScript se sustituye por el embed
    (youtube-nocookie) al pulsar. Así ninguna visita carga el reproductor de
    YouTube si no se pide. */
@@ -47,11 +47,11 @@ export const mediaMarkup = items => (Array.isArray(items) ? items : []).filter(v
 export const validVideo = item => validPost(item)
   && typeof item.videoId === 'string' && /^[\w-]{6,24}$/.test(item.videoId);
 
-export const visibleVideos = (items, limit = 2) => (Array.isArray(items) ? items : [])
+export const visibleVideos = (items, limit = 3) => (Array.isArray(items) ? items : [])
   .filter(validVideo)
   .sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, limit);
 
-export const videosMarkup = (items, limit = 2) => visibleVideos(items, limit).map((item, index) => {
+export const videosMarkup = (items, limit = 3) => visibleVideos(items, limit).map((item, index) => {
   const thumb = item.image || `https://i.ytimg.com/vi/${item.videoId}/maxresdefault.jpg`;
   // Sin texto alrededor: el título va en el alt y en el nombre accesible del enlace.
   return `

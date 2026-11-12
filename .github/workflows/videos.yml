@@ -1,0 +1,48 @@
+name: Sync videos
+
+# Los tres últimos vídeos de YouTube de la portada. Se mira el feed del canal cada hora y
+# solo se publica (commit → GitHub Pages) si ha cambiado algo. El resto de feeds sigue en
+# feeds.yml, una vez al mes. El minuto 17 es a propósito: en punto, GitHub va más cargado
+# y retrasa o salta los cron.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-videos
+  cancel-in-progress: false
+
+jobs:
+  videos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check feed preservation
+        run: npm test
+
+      - name: Sync YouTube
+        run: node feeds/build.mjs --source=youtube
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "feeds-bot"
+          git config user.email "feeds-bot@users.noreply.github.com"
+          git add index.html data/videos.json assets/video/
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -m "videos: sync $(date -u +%Y-%m-%d)"
+            # Si entretanto ha entrado otro commit (la sincronización mensual, un cambio a mano), se coloca encima.
+            git pull --rebase
+            git push
+          fi

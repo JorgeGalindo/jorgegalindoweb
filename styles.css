@@ -1382,7 +1382,7 @@ html[lang="en"] .basics-link { display: block; }
 }
 
 /* ─────────────────────────  vídeo · carrusel  ─────────────────────────
-   Solo los vídeos: ni titular ni pie. Un slide a la vista, desplazamiento con
+   Los tres últimos vídeos del canal, sin titular ni pie. Un slide a la vista, desplazamiento con
    scroll-snap (funciona con dedo y trackpad sin JavaScript) y controles que el
    script activa al cargar. La miniatura es un enlace real a YouTube: el embed
    solo se monta al pulsar. El título del vídeo vive en el alt y en el nombre
@@ -1522,11 +1522,14 @@ html[lang="en"] .basics-link { display: block; }
 .video__dot { position: relative; }
 
 @media (min-width: 900px) {
-  /* En pantallas anchas caben los dos vídeos a la vez: el carrusel deja de
-     desplazarse y se ponen en paralelo. */
+  /* En pantallas anchas caben los tres vídeos a la vez: el carrusel deja de
+     desplazarse y se ponen en fila. Con miniaturas de un tercio de ancho, el
+     botón de play se reduce para no tapar la portada. */
   .video__track { overflow-x: visible; scroll-snap-type: none; }
   .video__slide { flex: 1 1 0; }
   .video__controls { display: none; }
+  .video__play::before { width: 52px; }
+  .video__play::after { border-left-width: 15px; border-top-width: 9px; border-bottom-width: 9px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

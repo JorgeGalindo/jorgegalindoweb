@@ -31,7 +31,9 @@ Página personal de Jorge Galindo. HTML / CSS / JS plano + cron mensual que sinc
 │   └── video/<hash>.<ext>              ← caché de miniaturas de YouTube
 ├── feeds/
 │   └── build.mjs                        ← normalizador de feeds
-└── .github/workflows/feeds.yml          ← cron mensual
+└── .github/workflows/
+    ├── feeds.yml                        ← cron mensual (todas las fuentes)
+    └── videos.yml                       ← cron cada hora (solo YouTube)
 ```
 
 ## Desarrollo local
@@ -61,7 +63,7 @@ Fuentes activas:
 - **El País** — RSS oficial por autor.
 - **EsadeEcPol** — scraping de la página de autor + filtrado por mención de "Jorge Galindo" en el cuerpo del post.
 - **Substack (Rango abierto)** — RSS estándar + scraping de los tags `desbloquear-oportunidades`, `trabajo-con-maquinas` y `europa-sola`.
-- **YouTube** — feed Atom del canal (`youtube.com/@jorgegalindoa`, id `UCi57aaNOJItv1uEfRowDVbQ`). Sin API key ni cuota. El id del canal está en `YOUTUBE_CHANNEL_ID` dentro de `feeds/build.mjs`: el handle `@…` puede cambiar, el id no.
+- **YouTube** — feed Atom del canal (`youtube.com/@jorgegalindoa`, id `UCi57aaNOJItv1uEfRowDVbQ`). Sin API key ni cuota. El id del canal está en `YOUTUBE_CHANNEL_ID` dentro de `feeds/build.mjs`: el handle `@…` puede cambiar, el id no. Los Shorts (enlace `/shorts/` en el feed) se descartan. A diferencia de las demás fuentes, cuando el feed responde manda él: un vídeo borrado u oculto sale de la portada; si falla o llega vacío, se conserva la última copia.
 
 Si una fuente cambia URL o markup, ajustar `SOURCES` en `feeds/build.mjs`.
 
@@ -69,15 +71,19 @@ Si una fuente cambia URL o markup, ajustar `SOURCES` en `feeds/build.mjs`.
 
 `.github/workflows/feeds.yml` corre **mensual** (día 1 a las 06:00 UTC). Para activar **bisemanal**, descomenta el segundo `cron`. También puede dispararse a mano desde la pestaña Actions.
 
+`.github/workflows/videos.yml` mira **cada hora** (minuto 17) solo el feed de YouTube (`node feeds/build.mjs --source=youtube`, que reescribe solo `data/videos.json` y el HTML) y hace commit únicamente si hay cambios. GitHub retrasa a veces los cron programados, así que un vídeo nuevo puede tardar alguna hora en aparecer; para forzarlo, Actions → *Sync videos* → *Run workflow*. Los dos workflows hacen `git pull --rebase` antes del push para no pisarse.
+
+GitHub pausa los cron de un repositorio público tras 60 días sin commits. La sincronización mensual lo evita mientras haya artículos nuevos; si alguna vez se pausan, GitHub avisa por correo y se reactivan desde la pestaña Actions.
+
 ## Sección de vídeo
 
-La sección `#video` va justo debajo de la cabecera, antes del libro, y muestra los **dos vídeos más recientes** del canal (`visibleVideos` en `feeds/content.mjs`, límite 2). **Solo los vídeos**: sin titular, sin pie y sin enlace al canal. El título de cada vídeo vive en el `alt` de la miniatura y en el `aria-label` del enlace, que es lo que leen buscadores y lectores de pantalla.
+La sección `#video` va justo debajo de la cabecera, antes del libro, y muestra los **tres vídeos más recientes** del canal (`visibleVideos` en `feeds/content.mjs`, límite 3). **Solo los vídeos**: sin titular, sin pie y sin enlace al canal. El título de cada vídeo vive en el `alt` de la miniatura y en el `aria-label` del enlace, que es lo que leen buscadores y lectores de pantalla.
 
 - En móvil es un carrusel: un vídeo a la vista, con scroll-snap horizontal, flechas y puntos. El desplazamiento con el dedo funciona aunque falle el JavaScript; las flechas y los puntos los activa `app.js`.
-- Desde 900 px de ancho caben los dos a la vez y el carrusel se convierte en una pareja de tarjetas (los controles se ocultan por CSS).
+- Desde 900 px de ancho caben los tres a la vez y el carrusel se convierte en una fila de tres tarjetas (los controles se ocultan por CSS).
 - La miniatura es un **enlace real a YouTube**. `app.js` intercepta el clic y lo sustituye por el embed de `youtube-nocookie.com`, así que ninguna visita carga el reproductor de YouTube si no se pide. Sin JavaScript, el enlace lleva al vídeo.
 - Las miniaturas se cachean en el repo: se prueba `maxresdefault` (1280×720, sin bandas negras) y se cae a `sddefault` o a la del feed.
-- Para publicar un vídeo nuevo basta con `npm run feeds:build` (o esperar al cron): el builder reescribe `data/videos.json` y los listados del HTML.
+- **No hay que tocar nada para publicar un vídeo nuevo**: `videos.yml` lo recoge en la siguiente hora y reescribe `data/videos.json` y el HTML. En local, `node feeds/build.mjs --source=youtube`.
 
 ## Idiomas
 

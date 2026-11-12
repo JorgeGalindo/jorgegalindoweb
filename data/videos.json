@@ -1,7 +1,18 @@
 {
-  "syncedAt": "2026-11-03",
+  "syncedAt": "2026-11-12",
   "channel": "https://www.youtube.com/@jorgegalindoa",
   "items": [
+    {
+      "kind": "video",
+      "kindLabel": "YouTube",
+      "source": "YouTube",
+      "date": "2026-11-09",
+      "title": "Lo que SÍ funcionaría para acabar con la escasez de vivienda en alquiler",
+      "excerpt": "En España hay un millón y medio más de hogares de alquiler que en 2008, y en Madrid y Cataluña ya son la mitad de los hogares de menos de 45 años. Y aun así, cuando te pones a buscar, casi no hay…",
+      "url": "https://www.youtube.com/watch?v=Zut7uP7TAdM",
+      "image": "assets/video/a50f4b748123.jpg",
+      "videoId": "Zut7uP7TAdM"
+    },
     {
       "kind": "video",
       "kindLabel": "YouTube",

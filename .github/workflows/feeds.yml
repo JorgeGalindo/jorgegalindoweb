@@ -36,5 +36,7 @@ jobs:
             echo "no changes"
           else
             git commit -m "feeds: sync $(date -u +%Y-%m-%d)"
+            # videos.yml corre cada hora: si ha publicado entretanto, este commit va encima.
+            git pull --rebase
             git push
           fi
