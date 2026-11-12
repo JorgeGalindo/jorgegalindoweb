@@ -19,7 +19,8 @@ Página personal de Jorge Galindo. HTML / CSS / JS plano + cron mensual que sinc
 │   ├── events.json           ← manual (eventos + medios destacados)
 │   └── i18n.json             ← traducciones es / en / ca
 ├── assets/
-│   ├── jorge.jpg                       ← avatar circular del hero
+│   ├── jorge.jpg                       ← avatar circular del hero (la foto de perfil de X)
+│   ├── og/card.html, og/card.png       ← tarjeta del enlace (og:image), sin foto
 │   ├── jorge-portrait.png              ← retrato editorial b/n en "quién"
 │   ├── libro.png                       ← portada Tres millones de viviendas
 │   ├── la-urna-rota.png                ← portadas Politikon
@@ -157,6 +158,18 @@ A partir de ese momento `https://jorgegalindo.eu` sirve el sitio.
 - El `CNAME` en la raíz del repo es **obligatorio** para que GitHub respete tu dominio personalizado (no solo lo configuras en Settings → Pages, también necesita estar el archivo).
 - El servidor de GitHub Pages **cachea agresivamente**. Si subes una nueva versión y no la ves, hard-refresh (Cmd+Shift+R). Las URLs `?v=...` del HTML ayudan, pero si cambias HTML directamente puede tardar 5–10 minutos.
 - Pages **solo sirve archivos estáticos**. El cron de feeds sigue corriendo en GitHub Actions y commitea los JSONs/imágenes generadas al repo, lo cual dispara un nuevo build y publish automáticos.
+
+## Tarjeta del enlace
+
+Al compartir `jorgegalindo.eu`, la vista previa (`og:image`, y `twitter:card` grande para X) es `assets/og/card.png`: la cabecera oscura con el titular, sin foto. Se genera desde `assets/og/card.html`; si cambia el titular:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars \
+  --window-size=1200,630 --virtual-time-budget=6000 \
+  --screenshot="$PWD/assets/og/card.png" "file://$PWD/assets/og/card.html"
+```
+
+X, WhatsApp y LinkedIn guardan la vista previa de cada URL durante días. Si un sitio sigue mostrando la antigua, comparte `https://jorgegalindo.eu/?v=2` o renueva la caché (LinkedIn Post Inspector, Facebook Sharing Debugger).
 
 ## Reemplazar imágenes
 

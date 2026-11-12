@@ -1,0 +1,65 @@
+<!doctype html>
+<!-- Tarjeta para compartir jorgegalindo.eu (og:image, 1200×630): la cabecera oscura de la portada, sin foto.
+     Si cambia el titular, se regenera con la orden de README.md («Tarjeta del enlace»). -->
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;1,300;1,400&family=Roboto+Mono:wght@400&display=block" rel="stylesheet" />
+<style>
+  html, body { margin: 0; }
+  body {
+    position: relative;
+    width: 1200px; height: 630px;
+    overflow: hidden;
+    background: #111A16;
+    color: #F5F3EB;
+    font-family: "Spectral", Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* La trama de puntos y la línea de luz de la cabecera. */
+  .dots {
+    position: absolute; inset: 0 0 0 auto; width: 520px;
+    background-image: radial-gradient(circle, #829F8E 1.3px, transparent 1.3px);
+    background-size: 26px 26px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000);
+    mask-image: linear-gradient(90deg, transparent, #000);
+    opacity: .2;
+  }
+  .trace {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background: linear-gradient(90deg, transparent 5%, #D7E6E1 55%, transparent 95%);
+    opacity: .55;
+  }
+  .card { position: absolute; inset: 0; padding: 62px 84px; display: flex; flex-direction: column; }
+  .top {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: "Roboto Mono", monospace; font-size: 24px; letter-spacing: .02em;
+  }
+  .brand { color: #F5F3EB; }
+  .url { color: #ADBEB4; font-size: 21px; }
+  h1 {
+    margin: auto 0;
+    max-width: 1010px;
+    font-weight: 300; font-size: 60px; line-height: 1.14; letter-spacing: -.025em;
+    text-wrap: balance;
+  }
+  h1 em {
+    font-style: italic; font-weight: 400; color: #D7E6E1;
+    text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .12em;
+    text-decoration-skip-ink: none;
+  }
+  .sig { margin: 0; font-size: 27px; line-height: 1.4; color: #C1CDC6; }
+</style>
+</head>
+<body>
+  <div class="dots" aria-hidden="true"></div>
+  <div class="card">
+    <div class="top"><span class="brand">[jorge.galindo]</span><span class="url">jorgegalindo.eu</span></div>
+    <h1>Trabajo convirtiendo conocimiento y&nbsp;datos rigurosos en <em>criterio</em>, buscando ideas sólidas y&nbsp;viables para el progreso.</h1>
+    <p class="sig">Dirijo EsadeEcPol. He publicado <em>Tres millones de viviendas</em> (Debate). Escribo en El País.</p>
+  </div>
+  <div class="trace" aria-hidden="true"></div>
+</body>
+</html>
