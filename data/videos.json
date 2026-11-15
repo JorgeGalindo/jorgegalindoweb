@@ -6,6 +6,17 @@
       "kind": "video",
       "kindLabel": "YouTube",
       "source": "YouTube",
+      "date": "2026-11-15",
+      "title": "¿Qué pasa con nuestras infraestructuras?",
+      "excerpt": "En 2019, menos de uno de cada diez AVE y Avlo de Renfe llegaba con cinco minutos o más de retraso; en 2025, casi tres. Las carreteras, la red eléctrica, las esperas para el médico: cada vez damos…",
+      "url": "https://www.youtube.com/watch?v=zCoWzoIeVbc",
+      "image": "assets/video/e5afe86a2bc7.jpg",
+      "videoId": "zCoWzoIeVbc"
+    },
+    {
+      "kind": "video",
+      "kindLabel": "YouTube",
+      "source": "YouTube",
       "date": "2026-11-09",
       "title": "Lo que SÍ funcionaría para acabar con la escasez de vivienda en alquiler",
       "excerpt": "En España hay un millón y medio más de hogares de alquiler que en 2008, y en Madrid y Cataluña ya son la mitad de los hogares de menos de 45 años. Y aun así, cuando te pones a buscar, casi no hay…",
